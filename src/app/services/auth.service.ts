@@ -27,4 +27,7 @@ export class AuthService {
       withCredentials: true,
     });
   }
+  getNews(){
+    return this.http.get("https://stocknewsapi.com/api/v1/category?section=general&items=12&token=u5dsbsshi5vjxwphlv8bmtx7inniaunlkhb9fgmb")
+  }
 }

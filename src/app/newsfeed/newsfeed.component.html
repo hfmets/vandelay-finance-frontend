@@ -1,0 +1,27 @@
+ <div class="grid-container">
+  <mat-grid-list cols="3" rowHeight="320px">
+    <mat-grid-tile *ngFor="let newss of news" [colspan]="1" [rowspan]="2">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{newss.title}}
+           
+
+          </mat-card-title>       
+          <mat-card-subtitle>-{{newss.source_name}},{{newss.date}}</mat-card-subtitle><br>
+
+
+        </mat-card-header>
+  <img mat-card-image src={{newss.image_url}} alt="Photo of a Shiba Inu">
+
+        <mat-card-content class="dashboard-card-content">
+          <p>{{newss.text}}</p>
+          <a href={{newss.news_url}}>
+<button class="button-57" role="button"><span class="text">Read More</span><span>Go!</span></button>
+</a>
+ 
+  </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
