@@ -22,6 +22,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatTableModule } from '@angular/material/table';
+import { NewsfeedComponent } from './newsfeed/newsfeed.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 
 @NgModule({
   declarations: [
@@ -31,6 +35,7 @@ import { MatTableModule } from '@angular/material/table';
     StocksComponent,
     FundsComponent,
     HomeComponent,
+    NewsfeedComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +53,8 @@ import { MatTableModule } from '@angular/material/table';
     HttpClientModule,
     MatChipsModule,
     MatTableModule,
+    MatCardModule,
+    MatGridListModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],
