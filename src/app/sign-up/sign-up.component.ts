@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../services/auth.service';
 
@@ -14,13 +15,13 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./sign-up.component.css'],
 })
 export class SignUpComponent implements OnInit {
-  @Output() signedUp: EventEmitter<any> = new EventEmitter();
   signUpForm!: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private auth: AuthService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -52,11 +53,13 @@ export class SignUpComponent implements OnInit {
     this.auth.signUp(reqBody).subscribe({
       next: (res) => {
         console.log(res);
+        localStorage.setItem('name', JSON.stringify(res.user.name));
       },
       error: (err) => console.log(err),
       complete: () => {
         console.log(this.cookieService.check('connect.sid'));
         this.auth.emitLoginChange(this.cookieService.check('connect.sid'));
+        this.router.navigateByUrl('/home');
       },
     });
   }

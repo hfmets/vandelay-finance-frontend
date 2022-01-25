@@ -21,4 +21,10 @@ export class AuthService {
   signUp(body: any): Observable<any> {
     return this.http.post<any>(this.authUrl, body, { withCredentials: true });
   }
+
+  login(body: any): Observable<any> {
+    return this.http.post<any>(this.authUrl + 'login', body, {
+      withCredentials: true,
+    });
+  }
 }

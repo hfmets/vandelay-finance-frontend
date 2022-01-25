@@ -9,7 +9,7 @@
   <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over': 'side'" role="navigation"
       [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" class="mat-elevation-z8">
-      <button mat-button class="menu-button">
+      <button mat-button class="menu-button" routerLink="/home">
         <mat-icon>home</mat-icon>
         <span>Home</span>
       </button>
