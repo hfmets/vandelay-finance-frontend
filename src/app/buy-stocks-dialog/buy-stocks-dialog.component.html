@@ -1,0 +1,25 @@
+<div class="container">
+  <h2 class="title">{{data.ticker}}</h2>
+  <h3 class="subheading-2">{{data.name}}</h3>
+  <form [formGroup]="form">
+    <mat-form-field appearance="outline">
+      <mat-label>Current price</mat-label>
+      <input matInput type="number" formControlName="last">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Shares</mat-label>
+      <input matInput type="number" formControlName="shares">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Total</mat-label>
+      <input matInput type="number" formControlName="total">
+    </mat-form-field>
+    <mat-chip-list *ngIf="error">
+      <mat-chip color="warn">{{error}}</mat-chip>
+    </mat-chip-list>
+    <br>
+    <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="submitForm()">Purchase</button>
+  </form>
+</div>

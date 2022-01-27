@@ -25,7 +25,10 @@ import { MatTableModule } from '@angular/material/table';
 import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BuyStocksDialogComponent } from './buy-stocks-dialog/buy-stocks-dialog.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     FundsComponent,
     HomeComponent,
     NewsfeedComponent,
+    BuyStocksDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +58,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatChipsModule,
     MatTableModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatPaginatorModule,
+    MatDialogModule,
+    FormsModule,
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],

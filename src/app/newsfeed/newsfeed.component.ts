@@ -27,7 +27,6 @@ export class NewsfeedComponent implements OnInit {
         Breakpoints.WebPortrait,
       ])
       .subscribe((result) => {
-        console.log(result);
         const breakpoints = result.breakpoints;
 
         if (breakpoints[Breakpoints.TabletPortrait]) {
