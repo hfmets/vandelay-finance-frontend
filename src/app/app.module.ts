@@ -31,6 +31,8 @@ import { BuyStocksDialogComponent } from './buy-stocks-dialog/buy-stocks-dialog.
 import { FormsModule } from '@angular/forms';
 import { WalletComponent } from './wallet/wallet.component';
 import { AddFundsDialogComponent } from './add-funds-dialog/add-funds-dialog.component';
+import { MyAccountComponent } from './my-account/my-account.component';
+import { SellHoldingsDialogComponent } from './sell-holdings-dialog/sell-holdings-dialog.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { AddFundsDialogComponent } from './add-funds-dialog/add-funds-dialog.com
     BuyStocksDialogComponent,
     WalletComponent,
     AddFundsDialogComponent,
+    MyAccountComponent,
+    SellHoldingsDialogComponent,
   ],
   imports: [
     BrowserModule,

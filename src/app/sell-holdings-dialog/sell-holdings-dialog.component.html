@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Sell holdings</h2>
+<div mat-dialog-content>
+  <p>Selling price: {{sellingPrice | currency}}</p>
+  <div [formGroup]="sellHoldingsForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Shares to sell</mat-label>
+      <input matInput formControlName="shares" type="number">
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="submitForm()" [disabled]="sellHoldingsForm.invalid" color="primary">Submit</button>
+</div>

@@ -12,5 +12,12 @@ export class WalletUpdateService {
     this.walletUpdate.next(change);
   }
 
+  private userInfoUpdate = new Subject<boolean>();
+  currentUserInfoUpdate$ = this.userInfoUpdate.asObservable();
+
+  changeUserInfoUpdate(change: boolean) {
+    this.userInfoUpdate.next(change);
+  }
+
   constructor() {}
 }
