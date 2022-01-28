@@ -8,11 +8,12 @@ import { Fund } from '../funds/fund.model';
 })
 export class MutualfundService {
   readonly URL;
+  readonly fundURL;
   readonly historicalData;
   readonly iraURL;
   constructor(private http: HttpClient) {
-    // this.URL =
-    //   'https://cors-anywhere.herokuapp.com/https://mutualfunds.herokuapp.com/currentMutualFunds';
+    this.fundURL =
+      'https://cors-anywhere.herokuapp.com/https://mutualfunds.herokuapp.com/currentMutualFunds';
     this.URL =
       'https://cors-anywhere.herokuapp.com/https://mutualfunds.herokuapp.com/currentMutualFunds/redis';
     // this.URL = `https://financialmodelingprep.com/api/v3/quotes/mutual_fund?apikey=${process.env.PARAMKEY}`;
@@ -27,7 +28,7 @@ export class MutualfundService {
   }
 
   getFund(symbol: string): Observable<any> {
-    return this.http.get(`${this.URL}/${symbol}`);
+    return this.http.get(`${this.fundURL}/${symbol}`);
   }
 
   getHistoricalData(symbol: string): Observable<any> {

@@ -11,7 +11,7 @@ declare var google: any;
 })
 export class FundComponent implements OnInit, AfterViewInit {
   fund: Fund = {};
-  data_table = [];
+  data_table = Array();
 
   constructor(
     private route: ActivatedRoute,
@@ -19,13 +19,24 @@ export class FundComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit(): void {
-    // this.route.params.subscribe((params) => {
-    //   const symbol = params['symbol'];
-    //   this.fundsService.getFund(symbol).subscribe((payload) => {
-    //     //console.log('Fund Payload ', payload);
-    //     this.fund = payload;
-    //   });
-    // });
+    this.route.params.subscribe((params) => {
+      //const symbol = params['symbol'];
+      const symbol = 'SLGD';
+      console.log('symbol1', symbol);
+      this.fundsService.getFund(symbol).subscribe({
+        next: (res) => {
+          console.log('res', res);
+          let fund = {
+            symbol: res.symbol,
+            name: res.name,
+            price: res.price,
+            change: res.change,
+            changesPercentage: res.changesPercentage,
+          };
+          this.fund = fund;
+        },
+      });
+    });
   }
 
   ngAfterViewInit(): void {
@@ -43,12 +54,13 @@ export class FundComponent implements OnInit, AfterViewInit {
           });
           resArr = resArr.slice(0, -2);
           let funds: Fund[] = resArr.map((item) => {
+            let dateType = new Date(item.date);
             return {
-              date: item['date'],
+              date: dateType,
               price: item['close'],
             };
           });
-          console.log('funds', typeof funds);
+          console.log('funds', funds);
           google.charts.setOnLoadCallback(this.drawChart(funds));
         },
       });
@@ -56,25 +68,16 @@ export class FundComponent implements OnInit, AfterViewInit {
   }
 
   drawChart(funds_arr: Fund[]) {
-    //console.log('symbol3', this.fund.symbol);
-    //console.log('type', typeof funds_arr[0]);
-    console.log('chart', funds_arr[0]);
     funds_arr.map((item) => {
       //date, close
-      // return {
-      //   date: new Date(item.date),
-      //   price: item.close,
-      // };
-      //let dateType = new Date(item.date);
-      //console.log('date', typeof item['date']);
-      //console.log('price', typeof item['price']);
-      console.log('vals', Object.values(item));
-      //this.data_table.push(Object.values(item));
-    });
-    //Object.keys(funds_arr).map((k) => funds_arr[k]);
-    //console.log('vals', Object.values(funds_arr));
+      let fund_data = {
+        date: item['date'],
+        price: item['price'],
+      };
 
-    //console.log('table', this.data_table);
+      this.data_table.push(Object.values(fund_data));
+    });
+
     // Create the data table.
     var data = google.visualization.arrayToDataTable(this.data_table, true);
 
