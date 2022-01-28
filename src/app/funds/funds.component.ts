@@ -1,9 +1,11 @@
 import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
 import { MutualfundService } from '../services/mutualfund.service';
 import { Fund } from '../funds/fund.model';
+import { FundComponent } from '../fund/fund.component';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-funds',
@@ -15,7 +17,10 @@ export class FundsComponent implements AfterViewInit, OnInit {
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
-  constructor(private fundService: MutualfundService) {}
+  constructor(
+    private fundService: MutualfundService,
+    private dialog: MatDialog
+  ) {}
 
   //console.log(dataSource);
   funds!: MatTableDataSource<Fund>;
@@ -46,4 +51,11 @@ export class FundsComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit(): void {}
+
+  openModal() {
+    this.dialog.open(FundComponent, {
+      height: '600px',
+      width: '1000px',
+    });
+  }
 }

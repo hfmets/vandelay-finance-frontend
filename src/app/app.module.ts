@@ -31,6 +31,8 @@ import { BuyStocksDialogComponent } from './buy-stocks-dialog/buy-stocks-dialog.
 import { FormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSortModule } from '@angular/material/sort';
+import { FundComponent } from './fund/fund.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { MatSortModule } from '@angular/material/sort';
     HomeComponent,
     NewsfeedComponent,
     BuyStocksDialogComponent,
+    FundComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,6 +69,7 @@ import { MatSortModule } from '@angular/material/sort';
     FormsModule,
     MatMenuModule,
     MatSortModule,
+    MatTabsModule,
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],

@@ -8,7 +8,9 @@ main {
   margin: 1rem auto;
 }
 
-a {
+button {
   text-decoration: none;
   color: blue;
+  border: none;
+  background-color: transparent;
 }
