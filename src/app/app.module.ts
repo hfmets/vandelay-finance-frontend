@@ -29,6 +29,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BuyStocksDialogComponent } from './buy-stocks-dialog/buy-stocks-dialog.component';
 import { FormsModule } from '@angular/forms';
+import { WalletComponent } from './wallet/wallet.component';
+import { AddFundsDialogComponent } from './add-funds-dialog/add-funds-dialog.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     NewsfeedComponent,
     BuyStocksDialogComponent,
+    WalletComponent,
+    AddFundsDialogComponent,
   ],
   imports: [
     BrowserModule,
