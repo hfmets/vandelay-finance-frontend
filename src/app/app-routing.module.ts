@@ -12,10 +12,9 @@ const routes: Routes = [
   { path: 'sign-up', component: SignUpComponent },
   { path: 'login', component: LoginComponent },
   { path: 'stocks', component: StocksComponent },
-  { path: 'funds', component: FundsComponent },
+  { path: 'mutualFunds', component: FundsComponent },
   { path: 'news', component: NewsfeedComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-
 ];
 
 @NgModule({

@@ -48,15 +48,17 @@
         <mat-icon>bar_chart</mat-icon>
         <span>Stocks</span>
       </button>
-      <button mat-button [matMenuTriggerFor]="funds">
+      <button mat-button class="menu-button" [matMenuTriggerFor]="funds">
         <mat-icon>payments</mat-icon>
         <span>Funds</span>
       </button>
       <mat-menu #funds="matMenu">
-        <button mat-button class="menu-button" routerLink="/funds">
+        <button mat-button class="menu-button" routerLink="/mutualFunds">
+          <mat-icon> monetization_on</mat-icon>
           Mutual Funds
         </button>
         <button mat-button class="menu-button" routerLink="/etffunds">
+          <mat-icon> attach_money</mat-icon>
           ETF Funds
         </button>
       </mat-menu>
