@@ -7,7 +7,7 @@
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>Name</th>
         <td mat-cell *matCellDef="let fund">
-          <button (click)="openModal()">{{ fund.name }}</button>
+          <button (click)="openModal(fund.symbol)">{{ fund.name }}</button>
         </td>
       </ng-container>
 

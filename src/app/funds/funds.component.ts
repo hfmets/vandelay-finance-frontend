@@ -6,6 +6,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-funds',
@@ -52,10 +53,21 @@ export class FundsComponent implements AfterViewInit, OnInit {
 
   ngAfterViewInit(): void {}
 
-  openModal() {
+  openModal(symbol: string) {
+    // let dialogRef =
     this.dialog.open(FundComponent, {
       height: '600px',
       width: '1000px',
+      data: {
+        symbol: symbol,
+      },
     });
+    // this.dialogRef = this.dialog.open(FundComponent, {
+    //   width: '600px',
+    //   height: '1000px',
+    //   data: {
+    //     data: symbol,
+    //   },
+    // });
   }
 }

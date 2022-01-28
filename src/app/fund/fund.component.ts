@@ -1,7 +1,8 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Inject, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MutualfundService } from '../services/mutualfund.service';
 import { Fund } from '../funds/fund.model';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 declare var google: any;
 
 @Component({
@@ -15,55 +16,54 @@ export class FundComponent implements OnInit, AfterViewInit {
 
   constructor(
     private route: ActivatedRoute,
-    private fundsService: MutualfundService
+    private fundsService: MutualfundService,
+    @Inject(MAT_DIALOG_DATA) private data: string
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      //const symbol = params['symbol'];
-      const symbol = 'SLGD';
-      console.log('symbol1', symbol);
-      this.fundsService.getFund(symbol).subscribe({
-        next: (res) => {
-          console.log('res', res);
-          let fund = {
-            symbol: res.symbol,
-            name: res.name,
-            price: res.price,
-            change: res.change,
-            changesPercentage: res.changesPercentage,
-          };
-          this.fund = fund;
-        },
-      });
+    //const symbol = params['symbol'];
+    let s = Object.values(this.data);
+    const symbol = s[0];
+    console.log('symbol1', s[0]);
+    this.fundsService.getFund(symbol).subscribe({
+      next: (res) => {
+        //console.log('res', res);
+        let fund = {
+          symbol: res.symbol,
+          name: res.name,
+          price: res.price,
+          change: res.change,
+          changesPercentage: res.changesPercentage,
+        };
+        this.fund = fund;
+      },
     });
   }
 
   ngAfterViewInit(): void {
     google.charts.load('current', { packages: ['corechart'] });
 
-    this.route.params.subscribe((params) => {
-      // const symbol = params['symbol'];
-      const symbol = 'SLGD';
-      console.log('this.symbol2', symbol);
+    // const symbol = params['symbol'];
+    let s = Object.values(this.data);
+    const symbol = s[0];
+    console.log('this.symbol2', symbol);
 
-      this.fundsService.getHistoricalData(symbol).subscribe({
-        next: (res) => {
-          let resArr = Object.keys(res).map((key) => {
-            return res[key];
-          });
-          resArr = resArr.slice(0, -2);
-          let funds: Fund[] = resArr.map((item) => {
-            let dateType = new Date(item.date);
-            return {
-              date: dateType,
-              price: item['close'],
-            };
-          });
-          console.log('funds', funds);
-          google.charts.setOnLoadCallback(this.drawChart(funds));
-        },
-      });
+    this.fundsService.getHistoricalData(symbol).subscribe({
+      next: (res) => {
+        let resArr = Object.keys(res).map((key) => {
+          return res[key];
+        });
+        resArr = resArr.slice(0, -2);
+        let funds: Fund[] = resArr.map((item) => {
+          let dateType = new Date(item.date);
+          return {
+            date: dateType,
+            price: item['close'],
+          };
+        });
+        //console.log('funds', funds);
+        google.charts.setOnLoadCallback(this.drawChart(funds));
+      },
     });
   }
 
