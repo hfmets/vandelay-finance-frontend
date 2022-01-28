@@ -29,6 +29,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BuyStocksDialogComponent } from './buy-stocks-dialog/buy-stocks-dialog.component';
 import { FormsModule } from '@angular/forms';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -62,6 +64,8 @@ import { FormsModule } from '@angular/forms';
     MatPaginatorModule,
     MatDialogModule,
     FormsModule,
+    MatMenuModule,
+    MatSortModule,
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],
