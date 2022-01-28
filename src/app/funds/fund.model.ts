@@ -5,4 +5,5 @@ export interface Fund {
   price?: number;
   change?: number;
   changesPercentage?: number;
+  date?: Date;
 }

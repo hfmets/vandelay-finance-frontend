@@ -33,6 +33,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSortModule } from '@angular/material/sort';
 import { FundComponent } from './fund/fund.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { EtfsComponent } from './etfs/etfs.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     NewsfeedComponent,
     BuyStocksDialogComponent,
     FundComponent,
+    EtfsComponent,
   ],
   imports: [
     BrowserModule,
