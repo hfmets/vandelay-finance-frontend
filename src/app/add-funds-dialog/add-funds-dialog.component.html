@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>Add funds</h2>
+<div mat-dialog-content>
+  <div [formGroup]="addFundsForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Funds to add</mat-label>
+      <input matInput formControlName="funds" type="number">
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="submitForm()">Submit</button>
+</div>

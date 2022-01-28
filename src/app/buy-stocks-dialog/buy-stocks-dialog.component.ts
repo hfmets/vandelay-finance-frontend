@@ -1,3 +1,4 @@
+import { WalletUpdateService } from './../services/wallet-update.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -15,7 +16,8 @@ export class BuyStocksDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private fb: FormBuilder,
     private moneyService: MoneyService,
-    private dialogRef: MatDialogRef<BuyStocksDialogComponent>
+    private dialogRef: MatDialogRef<BuyStocksDialogComponent>,
+    private walletUpdate: WalletUpdateService
   ) {}
 
   ngOnInit(): void {
@@ -47,6 +49,7 @@ export class BuyStocksDialogComponent implements OnInit {
         this.error = err.error.message;
       },
       complete: () => {
+        this.walletUpdate.changeWalletUpdate(true);
         this.dialogRef.close();
       },
     });

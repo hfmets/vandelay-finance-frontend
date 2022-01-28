@@ -6,6 +6,7 @@ import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { ObjectUnsubscribedError } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-stocks',
@@ -15,12 +16,16 @@ import { MatDialog } from '@angular/material/dialog';
 export class StocksComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
-
+  loggedIn!: boolean;
   stocks!: MatTableDataSource<Stock>;
 
   displayedColumns = ['ticker', 'name', 'open', 'high', 'low', 'close', 'buy'];
 
-  constructor(private moneyService: MoneyService, public dialog: MatDialog) {}
+  constructor(
+    private moneyService: MoneyService,
+    public dialog: MatDialog,
+    private cookieService: CookieService
+  ) {}
 
   ngOnInit(): void {
     this.moneyService.getStocks().subscribe({
@@ -44,6 +49,8 @@ export class StocksComponent implements OnInit, AfterViewInit {
         this.stocks.paginator = this.paginator;
       },
     });
+
+    this.loggedIn = this.cookieService.check('connect.sid');
   }
 
   openDialog(stock: Stock) {

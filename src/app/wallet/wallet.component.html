@@ -1,0 +1,10 @@
+<mat-card>
+  <mat-card-title>Your Wallet</mat-card-title>
+  <br>
+  <mat-card-subtitle>Current Balance</mat-card-subtitle>
+  <br>
+  <p class="display-4">{{balance | currency}}</p>
+  <mat-card-actions align="end">
+    <button mat-raised-button color="primary" (click)="openDialog()">Add funds</button>
+  </mat-card-actions>
+</mat-card>

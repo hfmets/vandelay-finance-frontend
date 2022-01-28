@@ -1,5 +1,7 @@
 <div class="container mt-4">
   <h1 class="mat-display-3">Stocks</h1>
+  <app-wallet *ngIf="loggedIn"></app-wallet>
+  <br>
   <table #stockTable mat-table [dataSource]="stocks" class="mat-elevation-z8">
     <ng-container matColumnDef="ticker">
       <th mat-header-cell *matHeaderCellDef>Ticker</th>

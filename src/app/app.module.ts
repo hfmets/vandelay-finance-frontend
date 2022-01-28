@@ -29,11 +29,15 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BuyStocksDialogComponent } from './buy-stocks-dialog/buy-stocks-dialog.component';
 import { FormsModule } from '@angular/forms';
+
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSortModule } from '@angular/material/sort';
 import { FundComponent } from './fund/fund.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { EtfsComponent } from './etfs/etfs.component';
+import { WalletComponent } from './wallet/wallet.component';
+import { AddFundsDialogComponent } from './add-funds-dialog/add-funds-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -45,8 +49,13 @@ import { EtfsComponent } from './etfs/etfs.component';
     HomeComponent,
     NewsfeedComponent,
     BuyStocksDialogComponent,
+<<<<<<< HEAD
     FundComponent,
     EtfsComponent,
+=======
+    WalletComponent,
+    AddFundsDialogComponent,
+>>>>>>> 987eab16f1838a9fa28af3b8e68fc8fb3caac23f
   ],
   imports: [
     BrowserModule,
