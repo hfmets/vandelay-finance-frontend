@@ -6,18 +6,37 @@
     <h1>Vandelay Finance</h1>
   </mat-toolbar>
 
-  <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over': 'side'" role="navigation"
-      [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" class="mat-elevation-z8">
+  <mat-sidenav-container
+    class="sidenav-container"
+    [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
+  >
+    <mat-sidenav
+      #snav
+      [mode]="mobileQuery.matches ? 'over' : 'side'"
+      role="navigation"
+      [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56"
+      class="mat-elevation-z8"
+    >
       <button mat-button class="menu-button" routerLink="/home">
         <mat-icon>home</mat-icon>
         <span>Home</span>
       </button>
-      <button mat-button class="menu-button" *ngIf="!signedIn" routerLink="/sign-up">
+      <button
+        mat-button
+        class="menu-button"
+        *ngIf="!signedIn"
+        routerLink="/sign-up"
+      >
         <mat-icon>person_add</mat-icon>
         <span>Sign Up</span>
       </button>
-      <button mat-button class="menu-button" *ngIf="!signedIn" routerLink="/login">
+      <button
+        mat-button
+        class="menu-button"
+        *ngIf="!signedIn"
+        routerLink="/login"
+      >
         <mat-icon>login</mat-icon>
         <span>Login</span>
       </button>
@@ -29,10 +48,20 @@
         <mat-icon>bar_chart</mat-icon>
         <span>Stocks</span>
       </button>
-      <button mat-button class="menu-button" routerLink="/funds">
+      <button mat-button class="menu-button" [matMenuTriggerFor]="funds">
         <mat-icon>payments</mat-icon>
         <span>Funds</span>
       </button>
+      <mat-menu #funds="matMenu">
+        <button mat-button class="menu-button" routerLink="/mutualFunds">
+          <mat-icon> monetization_on</mat-icon>
+          Mutual Funds
+        </button>
+        <button mat-button class="menu-button" routerLink="/etfFunds">
+          <mat-icon> attach_money</mat-icon>
+          ETF Funds
+        </button>
+      </mat-menu>
       <button mat-button class="menu-button" routerLink="/news">
         <mat-icon>receipt</mat-icon>
         <span>News</span>

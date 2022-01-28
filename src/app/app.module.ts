@@ -29,6 +29,12 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BuyStocksDialogComponent } from './buy-stocks-dialog/buy-stocks-dialog.component';
 import { FormsModule } from '@angular/forms';
+
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSortModule } from '@angular/material/sort';
+import { FundComponent } from './fund/fund.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { EtfsComponent } from './etfs/etfs.component';
 import { WalletComponent } from './wallet/wallet.component';
 import { AddFundsDialogComponent } from './add-funds-dialog/add-funds-dialog.component';
 import { MyAccountComponent } from './my-account/my-account.component';
@@ -44,6 +50,8 @@ import { SellHoldingsDialogComponent } from './sell-holdings-dialog/sell-holding
     HomeComponent,
     NewsfeedComponent,
     BuyStocksDialogComponent,
+    FundComponent,
+    EtfsComponent,
     WalletComponent,
     AddFundsDialogComponent,
     MyAccountComponent,
@@ -70,6 +78,9 @@ import { SellHoldingsDialogComponent } from './sell-holdings-dialog/sell-holding
     MatPaginatorModule,
     MatDialogModule,
     FormsModule,
+    MatMenuModule,
+    MatSortModule,
+    MatTabsModule,
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],

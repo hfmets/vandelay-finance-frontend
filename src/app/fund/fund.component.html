@@ -1,0 +1,41 @@
+<main>
+  <strong>{{ fund.name }}</strong>
+  <mat-tab-group>
+    <mat-tab label="Chart">
+      <div class="chart">
+        <!-- <app-candle [symbol]="fund.symbol"></app-candle> -->
+        <div id="divCandleChart"></div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Summary">
+      <div class="float-container">
+        <div class="float-child1">
+          <br />
+          Symbol
+          <hr />
+          Name
+          <hr />
+          Price
+          <hr />
+          Change
+          <hr />
+          Change %
+          <hr />
+        </div>
+        <div class="float-child2">
+          <br />
+          {{ fund.symbol }}
+          <hr />
+          {{ fund.name }}
+          <hr />
+          {{ fund.price | currency: "USD":"symbol" }}
+          <hr />
+          {{ fund.change }}
+          <hr />
+          {{ fund.changesPercentage }}
+          <hr />
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</main>
