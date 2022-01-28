@@ -1,0 +1,16 @@
+table {
+  width: 100%;
+}
+
+main {
+  margin-top: 1rem;
+  width: 80%;
+  margin: 1rem auto;
+}
+
+button {
+  text-decoration: none;
+  color: blue;
+  border: none;
+  background-color: transparent;
+}

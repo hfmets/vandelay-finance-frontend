@@ -1,0 +1,32 @@
+.float-container {
+  border: 3px solid #fff;
+  display: flex;
+}
+
+.float-child1 {
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+}
+
+.float-child2 {
+  flex: 1;
+}
+
+.chart {
+  border: 3px solid grey;
+  height: 400px;
+  width: 950px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 16px;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+main {
+  margin-top: 1rem;
+  width: 80%;
+  margin: 1rem auto;
+}
