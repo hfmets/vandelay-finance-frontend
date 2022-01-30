@@ -7,6 +7,9 @@ import { ObjectUnsubscribedError } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { CookieService } from 'ngx-cookie-service';
+import { TableComponent } from '../visual/table/table/table.component';
+import { VisualComponent } from '../visual/visual/visual.component';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-stocks',
@@ -24,7 +27,9 @@ export class StocksComponent implements OnInit, AfterViewInit {
   constructor(
     private moneyService: MoneyService,
     public dialog: MatDialog,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private apiService: ApiService,
+    
   ) {}
 
   ngOnInit(): void {
@@ -55,6 +60,17 @@ export class StocksComponent implements OnInit, AfterViewInit {
 
   openDialog(stock: Stock) {
     this.dialog.open(BuyStocksDialogComponent, { data: stock });
+  }
+
+  openModal(someTicker: string) {
+    this.dialog.open(VisualComponent, {
+      height: '700px',
+      width: '1200px',
+      data: {
+        symbol: someTicker,
+      },
+    });
+    return (this.apiService.SET_TICKER = someTicker);
   }
 
   ngAfterViewInit() {}

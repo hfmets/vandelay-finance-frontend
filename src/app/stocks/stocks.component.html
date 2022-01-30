@@ -5,7 +5,7 @@
   <table #stockTable mat-table [dataSource]="stocks" class="mat-elevation-z8">
     <ng-container matColumnDef="ticker">
       <th mat-header-cell *matHeaderCellDef>Ticker</th>
-      <td mat-cell *matCellDef="let stock">{{stock.ticker}}</td>
+      <td mat-cell *matCellDef="let stock"> <button (click)="openModal(stock.ticker)">{{stock.ticker}}</button></td>
     </ng-container>
 
     <ng-container matColumnDef="name">

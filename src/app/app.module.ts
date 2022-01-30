@@ -29,6 +29,19 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BuyStocksDialogComponent } from './buy-stocks-dialog/buy-stocks-dialog.component';
 import { FormsModule } from '@angular/forms';
+import { VisualComponent } from './visual/visual/visual.component';
+import { TableComponent } from './visual/table/table/table.component';
+import { GraphComponent } from './visual/graph/graph/graph.component';
+
+
+
+
+
+
+
+
+
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSortModule } from '@angular/material/sort';
@@ -56,6 +69,9 @@ import { SellHoldingsDialogComponent } from './sell-holdings-dialog/sell-holding
     AddFundsDialogComponent,
     MyAccountComponent,
     SellHoldingsDialogComponent,
+    VisualComponent,
+    TableComponent,
+    GraphComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,6 +97,9 @@ import { SellHoldingsDialogComponent } from './sell-holdings-dialog/sell-holding
     MatMenuModule,
     MatSortModule,
     MatTabsModule,
+    MatProgressSpinnerModule,
+    
+  
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],
