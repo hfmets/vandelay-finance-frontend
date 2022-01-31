@@ -12,8 +12,12 @@ export class MutualfundService {
   readonly historicalData;
   readonly iraURL;
   constructor(private http: HttpClient) {
+<<<<<<< HEAD
     this.fundURL =
       'https://mysterious-dawn-78553.herokuapp.com/https://mutualfunds.herokuapp.com/currentMutualFunds';
+=======
+    this.fundURL = 'https://financialmodelingprep.com/api/v3/quote';
+>>>>>>> 5e4029d031a63a0c246333ffea3e0987e4b430a7
     this.URL =
 <<<<<<< HEAD
       'https://mysterious-dawn-78553.herokuapp.com/https://mutualfunds.herokuapp.com/currentMutualFunds/redis';
@@ -32,7 +36,7 @@ export class MutualfundService {
   }
 
   getFund(symbol: string): Observable<any> {
-    return this.http.get(`${this.fundURL}/${symbol}`);
+    return this.http.get(`${this.fundURL}/${symbol}?apikey=`);
   }
 
   getHistoricalData(symbol: string): Observable<any> {
