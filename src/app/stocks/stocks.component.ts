@@ -10,6 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { TableComponent } from '../visual/table/table/table.component';
 import { VisualComponent } from '../visual/visual/visual.component';
 import { ApiService } from '../api.service';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-stocks',
@@ -21,6 +22,8 @@ export class StocksComponent implements OnInit, AfterViewInit {
   paginator!: MatPaginator;
   loggedIn!: boolean;
   stocks!: MatTableDataSource<Stock>;
+  @ViewChild(MatSort)
+  sort!: MatSort;
 
   displayedColumns = ['ticker', 'name', 'open', 'high', 'low', 'close', 'buy'];
 
@@ -28,8 +31,7 @@ export class StocksComponent implements OnInit, AfterViewInit {
     private moneyService: MoneyService,
     public dialog: MatDialog,
     private cookieService: CookieService,
-    private apiService: ApiService,
-    
+    private apiService: ApiService
   ) {}
 
   ngOnInit(): void {
@@ -52,6 +54,7 @@ export class StocksComponent implements OnInit, AfterViewInit {
         });
         this.stocks = new MatTableDataSource<Stock>(stocks);
         this.stocks.paginator = this.paginator;
+        this.stocks.sort = this.sort;
       },
     });
 

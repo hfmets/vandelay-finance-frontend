@@ -1,8 +1,8 @@
 
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 
-import { MatTable, MatTableDataSource } from '@angular/material/table';
-import { ObjectUnsubscribedError } from 'rxjs';
+import { MatTableDataSource } from '@angular/material/table';
+
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -22,6 +22,7 @@ export class GraphComponent implements OnInit {
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
+  
   displayedColumns = this.getColumns();
   constructor(private apiService: ApiService) {}
 

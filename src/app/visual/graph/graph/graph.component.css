@@ -1,0 +1,8 @@
+#graph_container{
+
+  border: 3px solid grey;  
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+
+}

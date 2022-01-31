@@ -14,6 +14,7 @@ export class VisualComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
