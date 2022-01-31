@@ -1,1 +1,45 @@
-<p>add-ira works!</p>
+<h1 mat-dialog-title><strong>New Ira Account</strong></h1>
+<mat-dialog-component [formGroup]="form">
+  <mat-form-field>
+    <input
+      matInput
+      [(ngModel)]="name"
+      placeholder="Ira Name"
+      formControlName="name"
+    />
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <input
+      matInput
+      [(ngModel)]="type"
+      placeholder="Type"
+      formControlName="type"
+    />
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <input
+      matInput
+      [(ngModel)]="amount"
+      placeholder="Amount"
+      formControlName="amount"
+    />
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <input
+      matInput
+      [(ngModel)]="ticker"
+      placeholder="Ticker"
+      formControlName="ticker"
+    />
+  </mat-form-field>
+  <br />
+</mat-dialog-component>
+
+<mat-dialog-actions>
+  <button mat-button class="mat-raised-button" color="primary" (click)="add()">
+    Add Ira Account
+  </button>
+</mat-dialog-actions>
