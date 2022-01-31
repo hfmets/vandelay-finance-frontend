@@ -13,14 +13,14 @@ export class MutualfundService {
   readonly iraURL;
   constructor(private http: HttpClient) {
     this.fundURL =
-      'https://cors-anywhere.herokuapp.com/https://mutualfunds.herokuapp.com/currentMutualFunds';
+      'https://mysterious-dawn-78553.herokuapp.com/https://mutualfunds.herokuapp.com/currentMutualFunds';
     this.URL =
-      'https://cors-anywhere.herokuapp.com/https://mutualfunds.herokuapp.com/currentMutualFunds/redis';
+      'https://mysterious-dawn-78553.herokuapp.com/https://mutualfunds.herokuapp.com/currentMutualFunds/redis';
     // this.URL = `https://financialmodelingprep.com/api/v3/quotes/mutual_fund?apikey=${process.env.PARAMKEY}`;
 
     this.historicalData = `https://financialmodelingprep.com/api/v3/historical-chart/4hour`;
     this.iraURL =
-      'https://cors-anywhere.herokuapp.com/https://ira-funds.herokuapp.com/iras/';
+      'https://mysterious-dawn-78553.herokuapp.com/https://ira-funds.herokuapp.com/iras/';
   }
 
   getFunds(): Observable<any> {
