@@ -53,6 +53,10 @@ export class FundsComponent implements AfterViewInit, OnInit {
 
   ngAfterViewInit(): void {}
 
+  applyFilter(filterValue: string) {
+    this.funds.filter = filterValue.trim().toLowerCase();
+  }
+
   openModal(symbol: string) {
     // let dialogRef =
     this.dialog.open(FundComponent, {
