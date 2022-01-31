@@ -139,6 +139,8 @@ export class IraComponent implements OnInit {
     }
   }
 
+  addIraModal() {}
+
   ngOnDestroy() {
     this.irasSub.unsubscribe();
   }

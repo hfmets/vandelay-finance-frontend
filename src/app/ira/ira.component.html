@@ -1,8 +1,7 @@
-<div *ngIf="iras.length > 0">
-  <mat-accordion multi="true">
-    <strong>My Ira Accounts</strong>
-
-    <main>
+<main>
+  <div *ngIf="iras.length > 0">
+    <mat-accordion multi="true">
+      <strong>My Ira Accounts</strong>
       <mat-expansion-panel *ngFor="let fund of dataSource">
         <mat-expansion-panel-header *ngIf="fund.isGroupBy === true">
           <mat-panel-title> {{ fund.name }} </mat-panel-title>
@@ -47,16 +46,16 @@
           </mat-card>
         </div>
       </mat-expansion-panel>
-    </main>
-  </mat-accordion>
-</div>
-<!-- <p *ngIf="iras.length <= 0"><strong>No iras yet</strong></p>
-    <div class="container">
-      <button mat-raised-button color="primary" (click)="addIraModal()">
-        <mat-icon>add</mat-icon>Add Account
-      </button>
-      <h2><strong>Total buy amount: $2324</strong></h2>
-    </div>
-    <div class="buy">
-      <button mat-raised-button color="primary">Buy</button>
-    </div> -->
+    </mat-accordion>
+  </div>
+  <p *ngIf="iras.length <= 0"><strong>No iras yet</strong></p>
+  <div class="container">
+    <button mat-raised-button color="primary" (click)="addIraModal()">
+      <mat-icon>add</mat-icon>Add Account
+    </button>
+    <h2><strong>Total buy amount: $2324</strong></h2>
+  </div>
+  <div class="buy">
+    <button mat-raised-button color="primary">Buy</button>
+  </div>
+</main>
