@@ -40,6 +40,8 @@ import { AddFundsDialogComponent } from './add-funds-dialog/add-funds-dialog.com
 import { MyAccountComponent } from './my-account/my-account.component';
 import { SellHoldingsDialogComponent } from './sell-holdings-dialog/sell-holdings-dialog.component';
 import { IraComponent } from './ira/ira.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -83,6 +85,8 @@ import { IraComponent } from './ira/ira.component';
     MatMenuModule,
     MatSortModule,
     MatTabsModule,
+    MatExpansionModule,
+    MatCheckboxModule,
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],
