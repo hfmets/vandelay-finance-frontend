@@ -8,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 import { MyAccountComponent } from './my-account/my-account.component';
+import { EztraderComponent } from './eztrader/eztrader.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -18,6 +19,8 @@ const routes: Routes = [
   { path: 'mutualFunds', component: FundsComponent },
   { path: 'etfFunds', component: EtfsComponent },
   { path: 'news', component: NewsfeedComponent },
+    { path: 'eztrader', component: EztraderComponent },
+
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
