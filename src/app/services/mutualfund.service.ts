@@ -15,7 +15,11 @@ export class MutualfundService {
     this.fundURL =
       'https://mysterious-dawn-78553.herokuapp.com/https://mutualfunds.herokuapp.com/currentMutualFunds';
     this.URL =
+<<<<<<< HEAD
       'https://mysterious-dawn-78553.herokuapp.com/https://mutualfunds.herokuapp.com/currentMutualFunds/redis';
+=======
+      'https://cors-anywhere.herokuapp.com/https://mutual-funds-db.herokuapp.com/currentMutualFunds/redis';
+>>>>>>> fce5f2b443d0d03060c07dee9c298b054b530e81
     // this.URL = `https://financialmodelingprep.com/api/v3/quotes/mutual_fund?apikey=${process.env.PARAMKEY}`;
 
     this.historicalData = `https://financialmodelingprep.com/api/v3/historical-chart/4hour`;
