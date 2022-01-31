@@ -47,6 +47,8 @@ import { SellHoldingsDialogComponent } from './sell-holdings-dialog/sell-holding
 import { IraComponent } from './ira/ira.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FundsModalComponent } from './funds-modal/funds-modal.component';
+import { AddIraComponent } from './add-ira/add-ira.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +70,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     VisualComponent,
     TableComponent,
     GraphComponent,
+    FundsModalComponent,
+    AddIraComponent,
   ],
   imports: [
     BrowserModule,

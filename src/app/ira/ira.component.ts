@@ -3,6 +3,8 @@ import { Observable, Subscription } from 'rxjs';
 import { Ira } from './ira.model';
 import { MatDialog } from '@angular/material/dialog';
 import { IraService } from '../services/ira.service';
+import { FundsModalComponent } from '../funds-modal/funds-modal.component';
+import { AddIraComponent } from '../add-ira/add-ira.component';
 // import { AddIraComponent } from '../add-ira/add-ira.component';
 // import { FundsModalComponent } from '../funds-modal/funds-modal.component';
 
@@ -117,18 +119,18 @@ export class IraComponent implements OnInit {
     console.log('data2', this.dataSource);
   }
 
-  // openModal() {
-  //   //this.checked1 = !this.checked1;
-  //   console.log('this.checked', this.checked1);
-  //   this.dialog.open(FundsModalComponent, {
-  //     height: '600px',
-  //     width: '1000px',
-  //   });
-  // }
+  openModal() {
+    //this.checked1 = !this.checked1;
+    //console.log('this.checked', this.checked1);
+    this.dialog.open(FundsModalComponent, {
+      height: '600px',
+      width: '1000px',
+    });
+  }
 
-  // addIraModal(): void {
-  //   this.dialog.open(AddIraComponent);
-  // }
+  addIraModal(): void {
+    this.dialog.open(AddIraComponent);
+  }
 
   isGroup(item: any): boolean {
     console.log('isGrp', item.isGroupBy);
@@ -138,8 +140,6 @@ export class IraComponent implements OnInit {
       return false;
     }
   }
-
-  addIraModal() {}
 
   ngOnDestroy() {
     this.irasSub.unsubscribe();
