@@ -10,10 +10,11 @@ export class MutualfundService {
   readonly fundURL;
   readonly historicalData;
   constructor(private http: HttpClient) {
-    this.fundURL = 'https://financialmodelingprep.com/api/v3/quote';
+    this.fundURL =
+      'https://mysterious-dawn-78553.herokuapp.com/https://financialmodelingprep.com/api/v3/quote';
     this.URL =
       'https://mysterious-dawn-78553.herokuapp.com/https://mutualfunds.herokuapp.com/currentMutualFunds/redis';
-    this.historicalData = `https://financialmodelingprep.com/api/v3/historical-chart/4hour`;
+    this.historicalData = `https://mysterious-dawn-78553.herokuapp.com/https://financialmodelingprep.com/api/v3/historical-chart/4hour`;
   }
 
   getFunds(): Observable<any> {

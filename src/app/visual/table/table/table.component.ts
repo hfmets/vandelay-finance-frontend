@@ -4,8 +4,8 @@ import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { ObjectUnsubscribedError } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
-
-import { ApiService } from 'src/app/api.service';
+import { StockElement } from 'src/app/models/stockTablePopUp';
+import { ApiService } from 'src/app/services/api.service';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -34,16 +34,3 @@ export class TableComponent implements OnInit {
   }
 }
 
-export interface StockElement {
-  open: number;
-  high: number;
-  low: number;
-  close: number;
-  volume: number;
-  adj_close: number;
-  split_factor: number;
-  dividend: number;
-  symbol: string;
-  exchange: number;
-  date: Date;
-}
