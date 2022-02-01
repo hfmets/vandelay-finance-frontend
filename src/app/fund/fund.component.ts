@@ -29,11 +29,11 @@ export class FundComponent implements OnInit, AfterViewInit {
       next: (res) => {
         //console.log('res', res);
         let fund = {
-          symbol: res.symbol,
-          name: res.name,
-          price: res.price,
-          change: res.change,
-          changesPercentage: res.changesPercentage,
+          symbol: res[0].symbol,
+          name: res[0].name,
+          price: res[0].price,
+          change: res[0].change,
+          changesPercentage: res[0].changesPercentage,
         };
         this.fund = fund;
       },
