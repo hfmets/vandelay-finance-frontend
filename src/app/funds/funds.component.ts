@@ -7,6 +7,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
+import { BuyMutualFundsDialogComponent } from '../buy-mutual-funds-dialog/buy-mutual-funds-dialog.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-funds',
@@ -18,14 +20,16 @@ export class FundsComponent implements AfterViewInit, OnInit {
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
+  loggedIn!: boolean;
   constructor(
     private fundService: MutualfundService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private cookieService: CookieService
   ) {}
 
   //console.log(dataSource);
   funds!: MatTableDataSource<Fund>;
-  displayedColumns: string[] = ['name', 'symbol', 'price'];
+  displayedColumns: string[] = ['name', 'symbol', 'price', 'buy'];
 
   ngOnInit(): void {
     this.fundService.getFunds().subscribe({
@@ -49,6 +53,7 @@ export class FundsComponent implements AfterViewInit, OnInit {
       },
     });
     //console.log('2', this.dataSource);
+    this.loggedIn = this.cookieService.check('connect.sid');
   }
 
   ngAfterViewInit(): void {}
@@ -73,5 +78,9 @@ export class FundsComponent implements AfterViewInit, OnInit {
     //     data: symbol,
     //   },
     // });
+  }
+
+  openDialog(fund: Fund) {
+    this.dialog.open(BuyMutualFundsDialogComponent, { data: fund });
   }
 }
