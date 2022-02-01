@@ -32,7 +32,7 @@ export class AuthService {
     return this.http.get("https://mysterious-dawn-78553.herokuapp.com/https://stocknewsapi.com/api/v1/category?section=general&items=12&token=u5dsbsshi5vjxwphlv8bmtx7inniaunlkhb9fgmb")
   }
   getEZTrader(ticker:string){
-    return this.http.get("https://mysterious-dawn-78553.herokuapp.com/https://ez-trader-analysis.herokuapp.com/"+ticker)
+   // return this.http.get("https://mysterious-dawn-78553.herokuapp.com/https://ez-trader-analysis.herokuapp.com/"+ticker)
   }
 
 }
