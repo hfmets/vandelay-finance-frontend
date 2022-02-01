@@ -34,9 +34,13 @@ export class AuthService {
       }
     );
   }
-  getNews() {
-    return this.http.get(
-      'https://stocknewsapi.com/api/v1/category?section=general&items=12&token=u5dsbsshi5vjxwphlv8bmtx7inniaunlkhb9fgmb'
-    );
+
+  //these functions beloww should not be in the auth service, lazy coding on my part - Kaseem Stephenson
+  getNews(){
+    return this.http.get("https://stocknewsapi.com/api/v1/category?section=general&items=12&token=u5dsbsshi5vjxwphlv8bmtx7inniaunlkhb9fgmb")
   }
+  getEZTrader(ticker:string){
+    return this.http.get("https://ez-trader-analysis.herokuapp.com/"+ticker)
+  }
+
 }

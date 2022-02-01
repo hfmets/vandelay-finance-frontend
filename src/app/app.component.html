@@ -4,6 +4,7 @@
       <mat-icon>menu</mat-icon>
     </button>
     <h1>Vandelay Finance</h1>
+    <app-horizontal></app-horizontal>
   </mat-toolbar>
 
   <mat-sidenav-container
@@ -40,7 +41,12 @@
         <mat-icon>login</mat-icon>
         <span>Login</span>
       </button>
-      <button mat-button class="menu-button" *ngIf="signedIn" routerLink="/myaccount">
+      <button
+        mat-button
+        class="menu-button"
+        *ngIf="signedIn"
+        routerLink="/myaccount"
+      >
         <mat-icon>account_circle</mat-icon>
         <span>My Account</span>
       </button>
@@ -65,6 +71,10 @@
       <button mat-button class="menu-button" routerLink="/news">
         <mat-icon>receipt</mat-icon>
         <span>News</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/eztrader">
+        <mat-icon>call_missed_outgoing</mat-icon>
+        <span>EZTRADER</span>
       </button>
     </mat-sidenav>
     <mat-sidenav-content role="main">
