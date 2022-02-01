@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  prefixAuth: 'https://vandelay-finance-user-service.herokuapp.com/',
-  prefixFinances: 'https://vandelay-finance-finances.herokuapp.com/',
+  prefixAuth: 'http://backend.vandelay-user.fun/',
+  prefixFinances: 'http://backend-finances.vandelay-user.fun/',
 };
