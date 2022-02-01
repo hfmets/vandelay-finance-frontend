@@ -39,12 +39,11 @@
                   <div class="container">
                     <h2>{{ item.item.mutualFundId }}</h2>
                     <h2>${{ item.item.balance }}</h2>
-                    <mat-form-field
+                    <!-- <mat-form-field
                       appearance="fill"
                       *ngIf="item.item.balance === 0"
                     >
-                      <input disabled />
-                    </mat-form-field>
+                    </mat-form-field> -->
                     <mat-form-field
                       appearance="fill"
                       disabled="true"
