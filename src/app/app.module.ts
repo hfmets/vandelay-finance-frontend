@@ -50,6 +50,7 @@ import { HorizontalComponent } from './visual/horizontalGraph/horizontal/horizon
 
 import { EztraderComponent } from './eztrader/eztrader.component';
 import { EztraderdashboardComponent } from './eztraderdashboard/eztraderdashboard.component';
+import { DelorComponent } from './delor/delor.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { EztraderdashboardComponent } from './eztraderdashboard/eztraderdashboar
     HorizontalComponent,
     EztraderComponent,
     EztraderdashboardComponent,
+    DelorComponent,
   ],
   imports: [
     BrowserModule,

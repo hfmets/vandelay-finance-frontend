@@ -1,0 +1,70 @@
+<div class="grid-container">
+  
+
+  <mat-grid-list cols="2" rowHeight="100px">
+    <mat-grid-tile [colspan]="1" [rowspan]="6">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>DELOR TOOL</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+
+          <mat-form-field class="example-full-width" appearance="legacy">
+    <mat-label>TICKER: {{ticker}}</mat-label>
+    <input matInput placeholder="Ex. TSLA" value="Sushi" [(ngModel)]="ticker">
+  </mat-form-field><br><br>
+
+
+  <mat-form-field class="example-full-width" appearance="legacy">
+    <mat-label>AMOUNT: {{investmentAmount}}</mat-label>
+    <input matInput placeholder="Ex. 1000" value="Sushi" [(ngModel)]="investmentAmount">
+  </mat-form-field><br><br>
+
+ <mat-form-field class="example-full-width" appearance="legacy">
+    <mat-label>START DATE: {{startDate}}</mat-label>
+    <input matInput placeholder="Ex. 1000"  type="date" [(ngModel)]="startDate">
+  </mat-form-field><br><br>
+
+  <mat-form-field class="example-full-width" appearance="legacy">
+    <mat-label>END DATE: {{endDate}}</mat-label>
+    <input matInput placeholder="Ex. 1000"  type="date" [(ngModel)]="endDate">
+  </mat-form-field>  
+<br><br>
+
+
+<button  class="button-29" role="button" (click)="onDelorInvestFormSubmit()">INVEST</button>
+
+
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+
+
+    <mat-grid-tile [@enlarge]="isEnlarge ? 'end' : 'start'" [colspan]="1" [rowspan]="6">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            Analysis 
+            
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content"> <mat-divider></mat-divider>
+<<br><br><br>
+<button class="button-54" role="button" >INITAL INVESTMENT:{{delorResponseOg.initalInvestment}}</button><br>
+
+<button class="button-54" role="button" >TICKER:{{delorResponseOg.ticker}}</button><br>
+<button class="button-54" role="button" >INVESTMENT PERIOD:{{delorResponseOg.startDate}}-{{delorResponseOg.endDate}}</button><br>
+<button class="button-54" role="button" >FINAL VALUE:{{delorResponseOg.endInvestmentValue}}</button><br><br><br> <mat-divider></mat-divider>
+
+
+
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+
+
+
+  </mat-grid-list>
+</div>

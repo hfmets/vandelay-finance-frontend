@@ -60,7 +60,7 @@ mat-card:not([class*="mat-elevation-z"]) {
   position: relative;
   overflow: hidden;
   border: 1px solid #18181a;
-  color: #18181a;
+  color: skyblue;
   display: inline-block;
   font-size: 15px;
   line-height: 15px;
