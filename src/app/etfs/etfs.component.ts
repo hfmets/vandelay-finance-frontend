@@ -21,11 +21,12 @@ export class EtfsComponent implements OnInit {
   etf: any;
   _low: any;
   loggedIn!: boolean;
+
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
-
   @ViewChild(MatSort)
   sort!: MatSort;
+  
   displayedColumns = [
     'symbol',
     'name',
@@ -34,12 +35,9 @@ export class EtfsComponent implements OnInit {
     'change',
     'dayLow',
     'dayHigh',
-    'yearHigh',
-    'yearLow',
-    'exchange',
     'open',
     'previousClose',
-    'timestamp',
+    
   ];
   constructor(
     private apiService: ApiService,
@@ -62,19 +60,15 @@ export class EtfsComponent implements OnInit {
           change: eachEtfs.change,
           dayLow: eachEtfs.dayLow,
           dayHigh: eachEtfs.dayHigh,
-          yearHigh: eachEtfs.yearHigh,
-          yearLow: eachEtfs.yearLow,
-          exchange: eachEtfs.exchange,
           open: eachEtfs.open,
           previousClose: eachEtfs.previousClose,
-          timestamp: eachEtfs.timestamp,
         };
       });
       // this.etf = etfResponse;
       this.etf = new MatTableDataSource<ETF>(etfResponse);
       this.etf.paginator = this.paginator;
       this.etf.sort = this.sort;
-      console.log('this is etf');
+  
     });
     this.loggedIn = this.cookieService.check('connect.sid');
   }

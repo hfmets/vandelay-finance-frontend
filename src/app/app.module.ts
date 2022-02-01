@@ -33,14 +33,6 @@ import { VisualComponent } from './visual/visual/visual.component';
 import { TableComponent } from './visual/table/table/table.component';
 import { GraphComponent } from './visual/graph/graph/graph.component';
 
-
-
-
-
-
-
-
-
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { MatMenuModule } from '@angular/material/menu';
@@ -57,7 +49,6 @@ import { BuyMutualFundsDialogComponent } from './buy-mutual-funds-dialog/buy-mut
 import { HorizontalComponent } from './visual/horizontalGraph/horizontal/horizontal.component';
 
 import { EztraderComponent } from './eztrader/eztrader.component';
-
 
 @NgModule({
   declarations: [
@@ -78,12 +69,8 @@ import { EztraderComponent } from './eztrader/eztrader.component';
     VisualComponent,
     TableComponent,
     GraphComponent,
-
     BuyMutualFundsDialogComponent,
-
-
     HorizontalComponent,
-
     EztraderComponent,
   ],
   imports: [
@@ -111,8 +98,6 @@ import { EztraderComponent } from './eztrader/eztrader.component';
     MatSortModule,
     MatTabsModule,
     MatProgressSpinnerModule,
-    
-  
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],
