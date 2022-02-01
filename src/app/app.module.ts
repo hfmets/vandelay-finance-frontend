@@ -49,6 +49,7 @@ import { BuyMutualFundsDialogComponent } from './buy-mutual-funds-dialog/buy-mut
 import { HorizontalComponent } from './visual/horizontalGraph/horizontal/horizontal.component';
 
 import { EztraderComponent } from './eztrader/eztrader.component';
+import { BuyEtfDialogComponent } from './buy-etf-dialog/buy-etf-dialog.component';
 import { EztraderdashboardComponent } from './eztraderdashboard/eztraderdashboard.component';
 
 @NgModule({
@@ -73,6 +74,7 @@ import { EztraderdashboardComponent } from './eztraderdashboard/eztraderdashboar
     BuyMutualFundsDialogComponent,
     HorizontalComponent,
     EztraderComponent,
+    BuyEtfDialogComponent,
     EztraderdashboardComponent,
   ],
   imports: [

@@ -30,10 +30,14 @@ export class MutualfundService {
   }
 
   getFund(symbol: string): Observable<any> {
-    return this.http.get(`${this.fundURL}/${symbol}?apikey=`);
+    return this.http.get(
+      `${this.fundURL}/${symbol}?apikey=dccf9329500f00a6e72e4bc4bc1a681b`
+    );
   }
 
   getHistoricalData(symbol: string): Observable<any> {
-    return this.http.get(`${this.historicalData}/${symbol}?apikey=`);
+    return this.http.get(
+      `${this.historicalData}/${symbol}?apikey=dccf9329500f00a6e72e4bc4bc1a681b`
+    );
   }
 }

@@ -1,3 +1,4 @@
+import { BuyEtfDialogComponent } from './../buy-etf-dialog/buy-etf-dialog.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 
@@ -26,7 +27,7 @@ export class EtfsComponent implements OnInit {
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
-  
+
   displayedColumns = [
     'symbol',
     'name',
@@ -37,13 +38,14 @@ export class EtfsComponent implements OnInit {
     'dayHigh',
     'open',
     'previousClose',
-    
+    'buy',
   ];
   constructor(
     private apiService: ApiService,
     private etfService: EtfService,
     private httpClient: HttpClient,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -68,8 +70,11 @@ export class EtfsComponent implements OnInit {
       this.etf = new MatTableDataSource<ETF>(etfResponse);
       this.etf.paginator = this.paginator;
       this.etf.sort = this.sort;
-  
     });
     this.loggedIn = this.cookieService.check('connect.sid');
+  }
+
+  openDialog(etf: ETF) {
+    this.dialog.open(BuyEtfDialogComponent, { data: etf });
   }
 }
