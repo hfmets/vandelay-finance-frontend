@@ -1,8 +1,16 @@
 /* (A) FIXED WRAPPER */
 .hwrap {
-  overflow: hidden; /* HIDE SCROLL BAR */
-padding: 10px;
-  /* background: #eee; */
+  overflow: hidden; 
+/* padding: 10px; */
+margin-top: 15px;
+padding-right: 100px;
+margin-left: 20px;
+overflow-x: hidden;
+max-width: 86vw;
+
+margin-right:inherit;
+
+  background: rgba(0, 1, 5, 0.637);
 }
  
 /* (B) MOVING TICKER WRAPPER */
@@ -11,7 +19,7 @@ padding: 10px;
 /* (C) ITEMS - INTO A LONG HORIZONTAL ROW */
 .hitem {
   flex-shrink: 0;
-  width: 100%;
+  width: auto;
   box-sizing: border-box;
   padding: 10px;
   text-align: center;
@@ -46,4 +54,8 @@ padding: 10px;
 } */
 .hmove { animation: ticker-kf linear 30s infinite; }
 .hmove:hover { animation-play-state: paused; }
-.hmove{animation-iteration-count: infinite;}
+.hmove{animation-iteration-count: infinite; }
+
+small {
+  font-size: smaller;
+}

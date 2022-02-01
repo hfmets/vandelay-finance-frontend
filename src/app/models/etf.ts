@@ -8,10 +8,8 @@ export interface ETF {
   change: number,
   dayLow: number,
   dayHigh: number,
-  yearHigh: number,
-  yearLow: number,
-  exchange: string,
+ 
   open: number,
   previousClose: number,
-  timestamp: number,
+ 
 }
