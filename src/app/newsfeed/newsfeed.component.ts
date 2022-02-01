@@ -50,5 +50,7 @@ export class NewsfeedComponent implements OnInit {
       this.news = this.news.data;
       console.log(this.news);
     });
+    
+
   }
 }
