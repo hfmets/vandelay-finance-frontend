@@ -9,7 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CookieService } from 'ngx-cookie-service';
 import { TableComponent } from '../visual/table/table/table.component';
 import { VisualComponent } from '../visual/visual/visual.component';
-import { ApiService } from '../api.service';
+import { ApiService } from '../services/api.service';
 import { MatSort } from '@angular/material/sort';
 
 @Component({

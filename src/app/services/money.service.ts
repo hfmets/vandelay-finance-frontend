@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Stock } from '../models/stock';
 
 @Injectable({
@@ -13,16 +14,15 @@ export class MoneyService {
   stocksUrl: string =
     'https://mysterious-dawn-78553.herokuapp.com/https://obscure-oasis-94568.herokuapp.com/stocks/get/stocks/tickers';
 
-  purchaseStockUrl: string = 'http://localhost:3334/api/transactions/purchase';
+  purchaseStockUrl: string = 'api/transactions/purchase';
 
-  sellStockUrl: string = 'http://localhost:3334/api/transactions/sell';
+  sellStockUrl: string = 'api/transactions/sell';
 
-  getBalanceUrl: string =
-    'http://localhost:3334/api/transactions/accountBalance';
+  getBalanceUrl: string = 'api/transactions/accountBalance';
 
-  addFundsUrl: string = 'http://localhost:3334/api/transactions/addFunds';
+  addFundsUrl: string = 'api/transactions/addFunds';
 
-  accountInfoUrl: string = 'http://localhost:3334/api/transactions/accountInfo';
+  accountInfoUrl: string = 'api/transactions/accountInfo';
 
   constructor(private http: HttpClient) {}
 
@@ -35,28 +35,45 @@ export class MoneyService {
   }
 
   purchaseStock(reqBody: any): Observable<any> {
-    return this.http.post<any>(this.purchaseStockUrl, reqBody, {
-      withCredentials: true,
-    });
+    return this.http.post<any>(
+      environment.prefixFinances + this.purchaseStockUrl,
+      reqBody,
+      {
+        withCredentials: true,
+      }
+    );
   }
 
   sellStock(reqBody: any): Observable<any> {
-    return this.http.post<any>(this.sellStockUrl, reqBody, {
-      withCredentials: true,
-    });
+    return this.http.post<any>(
+      environment.prefixFinances + this.sellStockUrl,
+      reqBody,
+      {
+        withCredentials: true,
+      }
+    );
   }
 
   getAccountBalance(): Observable<any> {
-    return this.http.get<any>(this.getBalanceUrl, { withCredentials: true });
-  }
-
-  addFunds(reqBody: any): Observable<any> {
-    return this.http.post<any>(this.addFundsUrl, reqBody, {
+    return this.http.get<any>(environment.prefixFinances + this.getBalanceUrl, {
       withCredentials: true,
     });
   }
 
+  addFunds(reqBody: any): Observable<any> {
+    return this.http.post<any>(
+      environment.prefixFinances + this.addFundsUrl,
+      reqBody,
+      {
+        withCredentials: true,
+      }
+    );
+  }
+
   getAccountInfo(): Observable<any> {
-    return this.http.get<any>(this.accountInfoUrl, { withCredentials: true });
+    return this.http.get<any>(
+      environment.prefixFinances + this.accountInfoUrl,
+      { withCredentials: true }
+    );
   }
 }

@@ -1,0 +1,61 @@
+/* (A) FIXED WRAPPER */
+.hwrap {
+  overflow: hidden; 
+/* padding: 10px; */
+margin-top: 15px;
+padding-right: 100px;
+margin-left: 20px;
+overflow-x: hidden;
+max-width: 86vw;
+
+margin-right:inherit;
+
+  background: rgba(0, 1, 5, 0.637);
+}
+ 
+/* (B) MOVING TICKER WRAPPER */
+.hmove { display: flex;   padding: 10px; }
+
+/* (C) ITEMS - INTO A LONG HORIZONTAL ROW */
+.hitem {
+  flex-shrink: 0;
+  width: auto;
+  box-sizing: border-box;
+  padding: 10px;
+  text-align: center;
+}
+ 
+/* (D) ANIMATION - MOVE ITEMS FROM RIGHT TO LEFT */
+/* 4 ITEMS -400%, CHANGE THIS IF YOU ADD/REMOVE ITEMS */
+
+@keyframes ticker-kf {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-108rem, 0, 0);
+  }
+}
+
+.white {
+  color: white
+}
+.green{
+  color:rgb(20, 199, 50)
+}
+.red{
+  color: rgb(228, 52, 119)
+}
+/* 
+@keyframes tickerh {
+  0% { transform: translate3d(100%, 0, 0); }
+  100% { transform: translate3d(-400%, 0, 0); }
+} */
+.hmove { animation: ticker-kf linear 30s infinite; }
+.hmove:hover { animation-play-state: paused; }
+.hmove{animation-iteration-count: infinite; }
+
+small {
+  font-size: smaller;
+}

@@ -74,13 +74,10 @@ export class FundComponent implements OnInit, AfterViewInit {
         date: item['date'],
         price: item['price'],
       };
-
       this.data_table.push(Object.values(fund_data));
     });
-
     // Create the data table.
     var data = google.visualization.arrayToDataTable(this.data_table, true);
-
     var options = {
       legend: 'none',
       vAxis: {
