@@ -9,31 +9,13 @@
     />
   </mat-form-field>
   <br />
-  <mat-form-field>
-    <input
-      matInput
-      [(ngModel)]="type"
-      placeholder="Type"
-      formControlName="type"
-    />
-  </mat-form-field>
-  <br />
-  <mat-form-field>
-    <input
-      matInput
-      [(ngModel)]="amount"
-      placeholder="Amount"
-      formControlName="amount"
-    />
-  </mat-form-field>
-  <br />
-  <mat-form-field>
-    <input
-      matInput
-      [(ngModel)]="ticker"
-      placeholder="Ticker"
-      formControlName="ticker"
-    />
+  <mat-form-field appearance="fill">
+    <mat-label>Ira Type</mat-label>
+    <mat-select [(ngModel)]="selectedValue" formControlName="type">
+      <mat-option *ngFor="let type of types" [value]="type.viewValue">
+        {{ type.viewValue }}
+      </mat-option>
+    </mat-select>
   </mat-form-field>
   <br />
 </mat-dialog-component>

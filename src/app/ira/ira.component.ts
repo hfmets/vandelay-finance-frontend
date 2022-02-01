@@ -1,10 +1,15 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Ira } from './ira.model';
-import { MatDialog } from '@angular/material/dialog';
+import {
+  MatDialog,
+  MAT_DIALOG_SCROLL_STRATEGY_FACTORY,
+} from '@angular/material/dialog';
 import { IraService } from '../services/ira.service';
+import { MutualfundService } from '../services/mutualfund.service';
 import { FundsModalComponent } from '../funds-modal/funds-modal.component';
 import { AddIraComponent } from '../add-ira/add-ira.component';
+import { DisclosureComponent } from '../disclosure/disclosure.component';
 // import { AddIraComponent } from '../add-ira/add-ira.component';
 // import { FundsModalComponent } from '../funds-modal/funds-modal.component';
 
@@ -31,19 +36,23 @@ function groupBy(
   styleUrls: ['./ira.component.css'],
 })
 export class IraComponent implements OnInit {
+  amount: number = 0;
+  symbol: string = '';
+  checked = false;
   iras: Ira[] = [];
   tempIraTypeList: string[] = [];
   dataSource: any[] = [];
   new_data: any[] = [];
+  userId = 7;
   displayedColumns: string[] = ['name', 'balance'];
 
   private irasSub: Subscription = new Subscription();
 
-  constructor(private fundsService: IraService, private dialog: MatDialog) {}
+  constructor(private iraService: IraService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
-    let id = 23;
-    this.fundsService.getIra(id).subscribe({
+    //let id = 20;
+    this.iraService.getIra(this.userId).subscribe({
       next: (res) => {
         //console.log('response', res);
         let resArr = Object.keys(res).map((key) => {
@@ -119,12 +128,36 @@ export class IraComponent implements OnInit {
     console.log('data2', this.dataSource);
   }
 
-  openModal() {
+  openModal(fund: any) {
     //this.checked1 = !this.checked1;
     //console.log('this.checked', this.checked1);
-    this.dialog.open(FundsModalComponent, {
+    const dialogRef = this.dialog.open(FundsModalComponent, {
       height: '600px',
       width: '1000px',
+    });
+
+    //gets added mutual fund symbol
+    dialogRef.componentInstance.onAdd.subscribe((result) => {
+      this.symbol = result;
+      //create ira account with mutualFund Symbol
+      //fund.name
+      //fund.type
+      let new_ira = {
+        name: fund.name,
+        balance: 0,
+        type: fund.type,
+        userId: this.userId,
+        mutualFundId: this.symbol,
+        etfId: null,
+        stockId: null,
+      };
+      this.iraService.addIra(new_ira).subscribe();
+      console.log('symbol added', this.symbol);
+    });
+
+    dialogRef.afterClosed().subscribe(() => {
+      console.log('symbol2', this.symbol);
+      window.location.reload();
     });
   }
 
@@ -139,6 +172,14 @@ export class IraComponent implements OnInit {
     } else {
       return false;
     }
+  }
+
+  addMoney() {
+    this.checked = !this.checked;
+  }
+
+  disclosure() {
+    this.dialog.open(DisclosureComponent);
   }
 
   ngOnDestroy() {

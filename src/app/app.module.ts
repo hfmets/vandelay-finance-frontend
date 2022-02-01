@@ -49,6 +49,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FundsModalComponent } from './funds-modal/funds-modal.component';
 import { AddIraComponent } from './add-ira/add-ira.component';
+import { DisclosureComponent } from './disclosure/disclosure.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { AddIraComponent } from './add-ira/add-ira.component';
     GraphComponent,
     FundsModalComponent,
     AddIraComponent,
+    DisclosureComponent,
   ],
   imports: [
     BrowserModule,

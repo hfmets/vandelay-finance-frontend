@@ -19,4 +19,8 @@ export class IraService {
   addIra(ira: any): Observable<any> {
     return this.http.post(`${this.iraURL}`, ira);
   }
+
+  updateIra(ira: any): Observable<any> {
+    return this.http.patch(`${this.iraURL}/${ira.id}`, ira);
+  }
 }

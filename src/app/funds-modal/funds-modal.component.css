@@ -2,7 +2,9 @@ table {
   width: 100%;
 }
 
-a {
+button {
   text-decoration: none;
   color: blue;
+  border: none;
+  background-color: transparent;
 }

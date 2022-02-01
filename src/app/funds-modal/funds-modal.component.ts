@@ -1,9 +1,18 @@
-import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ViewChild,
+  OnInit,
+  EventEmitter,
+  Output,
+} from '@angular/core';
 import { MutualfundService } from '../services/mutualfund.service';
 import { Fund } from '../funds/fund.model';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { FundComponent } from '../fund/fund.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-funds-modal',
@@ -15,13 +24,14 @@ export class FundsModalComponent implements AfterViewInit, OnInit {
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
-  constructor(private fundService: MutualfundService) {}
+  constructor(
+    private fundService: MutualfundService,
+    private dialog: MatDialog
+  ) {}
 
   funds!: MatTableDataSource<Fund>;
-
-  //console.log(dataSource);
-  dataSource = new MatTableDataSource();
   displayedColumns: string[] = ['name', 'symbol', 'price', 'add'];
+  @Output() onAdd = new EventEmitter<any>(true);
 
   ngOnInit(): void {
     this.fundService.getFunds().subscribe({
@@ -47,8 +57,25 @@ export class FundsModalComponent implements AfterViewInit, OnInit {
     //console.log('2', this.dataSource);
   }
 
+  openModal(symbol: string) {
+    // let dialogRef =
+    this.dialog.open(FundComponent, {
+      height: '600px',
+      width: '1000px',
+      data: {
+        symbol: symbol,
+      },
+    });
+  }
+
   applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.funds.filter = filterValue.trim().toLowerCase();
   }
   ngAfterViewInit(): void {}
+
+  //update ira with mutual fund
+  addMutualFund(symbol: string) {
+    console.log('added');
+    this.onAdd.emit(symbol);
+  }
 }
