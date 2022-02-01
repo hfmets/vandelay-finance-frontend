@@ -19,9 +19,31 @@ padding: 10px;
  
 /* (D) ANIMATION - MOVE ITEMS FROM RIGHT TO LEFT */
 /* 4 ITEMS -400%, CHANGE THIS IF YOU ADD/REMOVE ITEMS */
+
+@keyframes ticker-kf {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-108rem, 0, 0);
+  }
+}
+
+.white {
+  color: white
+}
+.green{
+  color:rgb(20, 199, 50)
+}
+.red{
+  color: rgb(228, 52, 119)
+}
+/* 
 @keyframes tickerh {
   0% { transform: translate3d(100%, 0, 0); }
   100% { transform: translate3d(-400%, 0, 0); }
-}
-.hmove { animation: tickerh linear 18s infinite; }
+} */
+.hmove { animation: ticker-kf linear 30s infinite; }
 .hmove:hover { animation-play-state: paused; }
+.hmove{animation-iteration-count: infinite;}

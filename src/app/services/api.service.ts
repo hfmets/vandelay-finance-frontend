@@ -26,6 +26,7 @@ export class ApiService {
   public SET_TICKER: any;
 
   public getSingle() {
+    //Default Ticker
     const ticker = 'AAPL';
     if (!this.SET_TICKER) {
       this.SET_TICKER = ticker;
