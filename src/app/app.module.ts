@@ -53,6 +53,7 @@ import { AddFundsDialogComponent } from './add-funds-dialog/add-funds-dialog.com
 import { MyAccountComponent } from './my-account/my-account.component';
 import { SellHoldingsDialogComponent } from './sell-holdings-dialog/sell-holdings-dialog.component';
 import { EztraderComponent } from './eztrader/eztrader.component';
+import { EztraderdashboardComponent } from './eztraderdashboard/eztraderdashboard.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { EztraderComponent } from './eztrader/eztrader.component';
     TableComponent,
     GraphComponent,
     EztraderComponent,
+    EztraderdashboardComponent,
   ],
   imports: [
     BrowserModule,
