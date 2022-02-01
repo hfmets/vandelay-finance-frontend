@@ -51,6 +51,7 @@ import { HorizontalComponent } from './visual/horizontalGraph/horizontal/horizon
 import { EztraderComponent } from './eztrader/eztrader.component';
 import { BuyEtfDialogComponent } from './buy-etf-dialog/buy-etf-dialog.component';
 import { EztraderdashboardComponent } from './eztraderdashboard/eztraderdashboard.component';
+import { DelorComponent } from './delor/delor.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { EztraderdashboardComponent } from './eztraderdashboard/eztraderdashboar
     EztraderComponent,
     BuyEtfDialogComponent,
     EztraderdashboardComponent,
+    DelorComponent,
   ],
   imports: [
     BrowserModule,

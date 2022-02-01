@@ -45,5 +45,12 @@ export class AuthService {
         ticker
     );
   }
+  getResultsDelor(ticker:string,startDate:string,endDate:string,investmentAmount:string): Observable<any> {
+    const params = ticker + "/"+startDate+"/"+endDate+"/"+investmentAmount
+    const url = "https://mysterious-dawn-78553.herokuapp.com/https://delorean-investing.herokuapp.com/" + params
+
+    return this.http.get(url);
+
+  }
 
 }
