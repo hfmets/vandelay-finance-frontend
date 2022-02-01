@@ -1,4 +1,3 @@
-
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 
 import { MatTableDataSource } from '@angular/material/table';
@@ -22,7 +21,7 @@ export class GraphComponent implements OnInit {
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
-  
+
   displayedColumns = this.getColumns();
   constructor(private apiService: ApiService) {}
 
