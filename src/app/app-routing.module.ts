@@ -10,6 +10,7 @@ import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 import { MyAccountComponent } from './my-account/my-account.component';
 import { IraComponent } from './ira/ira.component';
 import { EztraderComponent } from './eztrader/eztrader.component';
+import { EztraderdashboardComponent } from './eztraderdashboard/eztraderdashboard.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'ira', component: IraComponent },
   { path: 'news', component: NewsfeedComponent },
   { path: 'eztrader', component: EztraderComponent },
+  { path: 'eztraderdash', component: EztraderdashboardComponent },
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
