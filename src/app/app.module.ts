@@ -55,6 +55,7 @@ import { BuyMutualFundsDialogComponent } from './buy-mutual-funds-dialog/buy-mut
 import { HorizontalComponent } from './visual/horizontalGraph/horizontal/horizontal.component';
 
 import { EztraderComponent } from './eztrader/eztrader.component';
+import { BuyEtfDialogComponent } from './buy-etf-dialog/buy-etf-dialog.component';
 import { EztraderdashboardComponent } from './eztraderdashboard/eztraderdashboard.component';
 import { IraTypesComponent } from './ira-types/ira-types.component';
 
@@ -84,6 +85,7 @@ import { IraTypesComponent } from './ira-types/ira-types.component';
     BuyMutualFundsDialogComponent,
     HorizontalComponent,
     EztraderComponent,
+    BuyEtfDialogComponent,
     EztraderdashboardComponent,
     IraTypesComponent,
   ],

@@ -1,0 +1,32 @@
+<div>
+  <section>
+    <div class="calculator_main">
+      <div id="screen_display">Vandelay Finance</div>
+      <div class="button_collection">
+        <!-- <div class="buttons">፨</div>
+          <div class="buttons">፨</div>
+          <div class="buttons">፨</div>
+          <div class="buttons">፨</div> -->
+        <div class="buttons">፨</div>
+        <div class="buttons">፨</div>
+        <div class="buttons">፨</div>
+        <div class="buttons">፨</div>
+        <div class="buttons"  mat-button *ngIf="!signedIn" routerLink="/">Home</div>
+        <div class="buttons"  mat-button *ngIf="!signedIn" routerLink="/news">News</div>
+        <div class="buttons" mat-button *ngIf="!signedIn" routerLink="/sign-up">
+          Sign-up
+        </div>
+        <!-- </button> -->
+        <div class="buttons" mat-button *ngIf="!signedIn" routerLink="/login">Login</div>
+        <div class="buttons" mat-button *ngIf="!signedIn" routerLink="/stocks">Stock</div>
+        <div class="buttons" mat-button *ngIf="!signedIn" routerLink="/etfFunds">ETF</div>
+        <div class="buttons" mat-button *ngIf="!signedIn" routerLink="/mutualFunds">Mutual Fund</div>
+        <div class="buttons" mat-button *ngIf="!signedIn" routerLink="/">IRA</div>
+        <div class="buttons">፨</div>
+        <div class="buttons">፨</div>
+        <div class="buttons">፨</div>
+        <div class="buttons">፨</div>
+      </div>
+    </div>
+  </section>
+</div>
