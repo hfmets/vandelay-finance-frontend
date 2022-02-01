@@ -33,7 +33,11 @@
             </mat-card>
             <div *ngFor="let item of dataSource">
               <mat-card
-                *ngIf="item.isGroupBy === false && item.item.type === fund.type"
+                *ngIf="
+                  item.isGroupBy === false &&
+                  item.item.type === fund.type &&
+                  item.item.name === fund.name
+                "
               >
                 <mat-card-content *ngIf="item.item.mutualFundId != null">
                   <div class="container">
@@ -83,18 +87,16 @@
     <mat-tab label="Understand the benefits of an IRA">
       <h1>What is an ira?</h1>
       <br />
-      <hr />
+      <p>
+        An IRA (individual retirement account) is a personal, tax-deferred
+        account the IRS created to give investors an easy way to save for
+        retirement.
+      </p>
+      <br />
       <h1>Why invest an ira?</h1>
     </mat-tab>
-    <mat-tab label="Roth vs. Traditional">
-      <h1>Which IRA is right for you?</h1>
-      Unsure of which type of IRA you should open?
-      <br />
-      Let's talk about the differences
-      <br />
-      Roth Ira
-      <br />
-      Traditional Ira
+    <mat-tab label="Traditional vs. Roth">
+      <app-ira-types></app-ira-types>
     </mat-tab>
     <mat-tab label="FAQ">
       <mat-accordion multi="true">
