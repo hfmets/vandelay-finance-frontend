@@ -1,1 +1,69 @@
-<p>etfs works!</p>
+<div class="container mt-4">
+  <app-wallet *ngIf="loggedIn"></app-wallet>
+  <br>
+  <table mat-table [dataSource]="etf" matSort class="mat-elevation-z8">
+    <!-- <caption style="text-align:right">My savings</caption> -->
+    <!-- Position Column -->
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef> Symbol </th>
+      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef> Price </th>
+      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+    </ng-container>
+    <ng-container matColumnDef="changesPercentage">
+      <th mat-header-cell *matHeaderCellDef> Changes Percentage </th>
+      <td mat-cell *matCellDef="let element"> {{element.changesPercentage | percent}} </td>
+    </ng-container>
+    <ng-container matColumnDef="change">
+      <th mat-header-cell *matHeaderCellDef> Change </th>
+      <td mat-cell *matCellDef="let element"> {{element.change}} </td>
+    </ng-container>
+    <ng-container matColumnDef="dayLow">
+      <th mat-header-cell *matHeaderCellDef> Day Low </th>
+      <td mat-cell *matCellDef="let element"> {{element.dayLow}} </td>
+    </ng-container>
+    <ng-container matColumnDef="dayHigh">
+      <th mat-header-cell *matHeaderCellDef> Day High </th>
+      <td mat-cell *matCellDef="let element"> {{element.dayHigh}} </td>
+    </ng-container>
+    <ng-container matColumnDef="yearHigh">
+      <th mat-header-cell *matHeaderCellDef> Year High </th>
+      <td mat-cell *matCellDef="let element"> {{element.yearHigh}} </td>
+    </ng-container>
+    <ng-container matColumnDef="yearLow">
+      <th mat-header-cell *matHeaderCellDef> Year Low </th>
+      <td mat-cell *matCellDef="let element"> {{element.yearLow}} </td>
+    </ng-container>
+    <ng-container matColumnDef="exchange">
+      <th mat-header-cell *matHeaderCellDef> Exchange </th>
+      <td mat-cell *matCellDef="let element"> {{element.exchange}} </td>
+    </ng-container>
+    <ng-container matColumnDef="open">
+      <th mat-header-cell *matHeaderCellDef> Open </th>
+      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+    </ng-container>
+    <ng-container matColumnDef="previousClose">
+      <th mat-header-cell *matHeaderCellDef> Previous Close </th>
+      <td mat-cell *matCellDef="let element"> {{element.previousClose}} </td>
+    </ng-container>
+    <ng-container matColumnDef="timestamp">
+      <th mat-header-cell *matHeaderCellDef> Timestamp </th>
+      <td mat-cell *matCellDef="let element"> {{element.timestamp}} </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[10, 20, 100]" class="mat-elevation-z8" showFirstLastButtons
+    aria-label="Select page of periodic elements">
+  </mat-paginator>
+
+</div>

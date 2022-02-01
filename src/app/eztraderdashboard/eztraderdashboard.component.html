@@ -1,0 +1,33 @@
+<div class="grid-container">
+  <mat-grid-list [cols]="cols" [rowHeight]="rowHeight">
+    <mat-grid-tile *ngFor="let ez of ezTraderDashContent; let i = index" [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card mat-elevation-z8">
+        <mat-card-header>
+          <mat-card-title>        <mat-icon>call_missed_outgoing</mat-icon>
+
+            {{tickerArray[i]}}
+          </mat-card-title>
+
+
+        <br>
+
+
+        </mat-card-header>
+
+        <mat-card-content class="dashboard-card-content">
+          <button class="button-29" role="button">{{ez.strength}} {{ez.action}}</button>
+
+         <br><br>
+          <mat-progress-spinner
+        class="resultSpinner"
+    color={{ez.color}}
+        [mode]="mode"
+        value={{ez.value}}>
+    </mat-progress-spinner>
+          
+
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

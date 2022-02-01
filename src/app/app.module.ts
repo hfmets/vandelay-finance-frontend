@@ -33,14 +33,6 @@ import { VisualComponent } from './visual/visual/visual.component';
 import { TableComponent } from './visual/table/table/table.component';
 import { GraphComponent } from './visual/graph/graph/graph.component';
 
-
-
-
-
-
-
-
-
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { MatMenuModule } from '@angular/material/menu';
@@ -52,6 +44,12 @@ import { WalletComponent } from './wallet/wallet.component';
 import { AddFundsDialogComponent } from './add-funds-dialog/add-funds-dialog.component';
 import { MyAccountComponent } from './my-account/my-account.component';
 import { SellHoldingsDialogComponent } from './sell-holdings-dialog/sell-holdings-dialog.component';
+import { BuyMutualFundsDialogComponent } from './buy-mutual-funds-dialog/buy-mutual-funds-dialog.component';
+
+import { HorizontalComponent } from './visual/horizontalGraph/horizontal/horizontal.component';
+
+import { EztraderComponent } from './eztrader/eztrader.component';
+import { EztraderdashboardComponent } from './eztraderdashboard/eztraderdashboard.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +70,10 @@ import { SellHoldingsDialogComponent } from './sell-holdings-dialog/sell-holding
     VisualComponent,
     TableComponent,
     GraphComponent,
+    BuyMutualFundsDialogComponent,
+    HorizontalComponent,
+    EztraderComponent,
+    EztraderdashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -98,8 +100,6 @@ import { SellHoldingsDialogComponent } from './sell-holdings-dialog/sell-holding
     MatSortModule,
     MatTabsModule,
     MatProgressSpinnerModule,
-    
-  
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],

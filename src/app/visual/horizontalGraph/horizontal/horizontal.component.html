@@ -1,0 +1,15 @@
+
+<div class="hwrap">
+  <div class="hmove">
+    <div *ngFor="let index of resArray; last as last">
+      <div class="hitem {{index.color}}">
+        {{index.symbol}} {{index.price.toFixed(2)}}
+        <p><small> {{index.changesPercentage.toFixed(2)}}%<mat-icon class={{index.color}}>{{index.trend}}</mat-icon> </small> </p>
+        <!-- <mat-icon> call_received</mat-icon> -->
+        <!-- <mat-icon class={{index.color}}>arrow_drop_up</mat-icon> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+

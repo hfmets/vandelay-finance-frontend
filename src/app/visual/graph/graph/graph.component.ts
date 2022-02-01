@@ -1,4 +1,3 @@
-
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 
 import { MatTableDataSource } from '@angular/material/table';
@@ -6,7 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 
-import { ApiService } from 'src/app/api.service';
+import { ApiService } from 'src/app/services/api.service';
 
 declare var google: any;
 
@@ -22,7 +21,7 @@ export class GraphComponent implements OnInit {
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
-  
+
   displayedColumns = this.getColumns();
   constructor(private apiService: ApiService) {}
 
@@ -30,12 +29,11 @@ export class GraphComponent implements OnInit {
     this.apiService.getSingle().subscribe((data) => {
       this.stock = data;
 
-      this.dataSource = new MatTableDataSource<StockElement>(this.stock);
-      this.dataSource.paginator = this.paginator;
+      google.charts.load('visualization', { packages: ['corechart'] });
 
-      this._low = this.dataSource.filteredData;
-      google.charts.load('current', { packages: ['corechart'] });
-      google.charts.setOnLoadCallback(this.drawChart(this._low));
+      google.charts.setOnLoadCallback(() => {
+        this.drawChart(this.stock);
+      });
     });
   }
 
@@ -44,6 +42,16 @@ export class GraphComponent implements OnInit {
   }
 
   drawChart(stuff: any) {
+    var options = {
+      // title: this.stock[0]['symbol'],
+      legend: 'none',
+      bar: { groupWidth: '100%' }, // Remove space between bars.
+      candlestick: {
+        fallingColor: { strokeWidth: 0, fill: '#a52714' }, // red
+        risingColor: { strokeWidth: 0, fill: '#0f9d58' }, // green
+      },
+    };
+
     // var stuff = this.gotRows
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Date');
@@ -64,17 +72,6 @@ export class GraphComponent implements OnInit {
         true
       );
     });
-
-    var options = {
-      title: this._low[0]['symbol'],
-      legend: 'none',
-      bar: { groupWidth: '100%' }, // Remove space between bars.
-      candlestick: {
-        fallingColor: { strokeWidth: 0, fill: '#a52714' }, // red
-        risingColor: { strokeWidth: 0, fill: '#0f9d58' }, // green
-      },
-    };
-
     var chart = new google.visualization.CandlestickChart(
       document.getElementById('chart_div')
     );
