@@ -74,11 +74,8 @@ import { EztraderdashboardComponent } from './eztraderdashboard/eztraderdashboar
     BuyMutualFundsDialogComponent,
     HorizontalComponent,
     EztraderComponent,
-<<<<<<< HEAD
     BuyEtfDialogComponent,
-=======
     EztraderdashboardComponent,
->>>>>>> 7e3c13ec74c74ac083fb43f80e074d398b360d12
   ],
   imports: [
     BrowserModule,

@@ -17,7 +17,7 @@
       <td mat-cell *matCellDef="let element"> {{element.price | currency}} </td>
     </ng-container>
     <ng-container matColumnDef="changesPercentage">
-      <th mat-header-cell *matHeaderCellDef> Changes Percentage </th>
+      <th mat-header-cell *matHeaderCellDef> Chng Pct. </th>
       <td mat-cell *matCellDef="let element"> {{element.changesPercentage | percent}} </td>
     </ng-container>
     <ng-container matColumnDef="change">
@@ -58,7 +58,7 @@
     </ng-container>
 
     <ng-container matColumnDef="buy">
-      <th mat-header-cell *matHeaderCellDef>Buy</th>
+      <th mat-header-cell *matHeaderCellDef class="text-center">Buy</th>
       <td mat-cell *matCellDef="let element">
         <button mat-icon-button color="primary" (click)="openDialog(element)">
           <mat-icon>shopping_cart</mat-icon>
