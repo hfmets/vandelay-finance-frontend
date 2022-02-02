@@ -8,7 +8,6 @@ import {
 import { IraService } from '../services/ira.service';
 import { FundsModalComponent } from '../funds-modal/funds-modal.component';
 import { AddIraComponent } from '../add-ira/add-ira.component';
-import { DisclosureComponent } from '../disclosure/disclosure.component';
 // import { AddIraComponent } from '../add-ira/add-ira.component';
 // import { FundsModalComponent } from '../funds-modal/funds-modal.component';
 
@@ -175,10 +174,6 @@ export class IraComponent implements OnInit {
 
   addMoney() {
     this.checked = !this.checked;
-  }
-
-  disclosure() {
-    this.dialog.open(DisclosureComponent);
   }
 
   ngOnDestroy() {

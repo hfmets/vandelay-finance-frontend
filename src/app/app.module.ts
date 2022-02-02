@@ -49,7 +49,6 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FundsModalComponent } from './funds-modal/funds-modal.component';
 import { AddIraComponent } from './add-ira/add-ira.component';
-import { DisclosureComponent } from './disclosure/disclosure.component';
 import { BuyMutualFundsDialogComponent } from './buy-mutual-funds-dialog/buy-mutual-funds-dialog.component';
 
 import { HorizontalComponent } from './visual/horizontalGraph/horizontal/horizontal.component';
@@ -84,7 +83,6 @@ import { BuyIraComponent } from './buy-ira/buy-ira.component';
     GraphComponent,
     FundsModalComponent,
     AddIraComponent,
-    DisclosureComponent,
     BuyMutualFundsDialogComponent,
     HorizontalComponent,
     EztraderComponent,
