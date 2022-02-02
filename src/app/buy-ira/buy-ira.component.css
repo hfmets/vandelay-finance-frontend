@@ -1,0 +1,16 @@
+.container1 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.container2 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.mat-raised-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}

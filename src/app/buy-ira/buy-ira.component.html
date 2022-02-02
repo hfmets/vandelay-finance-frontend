@@ -1,16 +1,19 @@
-Symbol: {{ symbol }}
-<br />
-<mat-form-field appearance="fill" disabled="true">
-  <mat-label>Amount</mat-label>
-  <input
-    matInput
-    type="text"
-    min="1"
-    placeholder="Amount"
-    [(ngModel)]="amount"
-  />
-</mat-form-field>
+<div class="container1"><strong>Symbol:</strong> {{ symbol }}</div>
+<div class="container2">
+  <mat-form-field appearance="fill" disabled="true">
+    <mat-label>Amount</mat-label>
+    <input
+      matInput
+      type="text"
+      min="1"
+      placeholder="Amount"
+      [(ngModel)]="amount"
+    />
+  </mat-form-field>
+</div>
 <div *ngIf="amount < 1000">There is a $1000 minimum</div>
 <div *ngIf="amount >= 1000">
-  <button (click)="buyIra()">Buy</button>
+  <button class="button" mat-raised-button color="primary" (click)="buyIra()">
+    Buy
+  </button>
 </div>

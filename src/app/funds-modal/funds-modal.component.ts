@@ -86,8 +86,8 @@ export class FundsModalComponent implements AfterViewInit, OnInit {
   addMutualFund(symbol: string) {
     console.log('added');
     this.dialog.open(BuyIraComponent, {
-      height: '400px',
-      width: '700px',
+      height: '250px',
+      width: '300px',
       data: {
         symbol: symbol,
         ira_name: this.iraName,
