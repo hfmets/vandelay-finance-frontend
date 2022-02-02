@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DisclosureComponent } from './disclosure.component';
+import { IraAccountComponent } from './ira-account.component';
 
-describe('DisclosureComponent', () => {
-  let component: DisclosureComponent;
-  let fixture: ComponentFixture<DisclosureComponent>;
+describe('IraAccountComponent', () => {
+  let component: IraAccountComponent;
+  let fixture: ComponentFixture<IraAccountComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DisclosureComponent ]
+      declarations: [ IraAccountComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DisclosureComponent);
+    fixture = TestBed.createComponent(IraAccountComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

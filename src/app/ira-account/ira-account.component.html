@@ -1,0 +1,57 @@
+<div *ngIf="iras.length > 0">
+  <mat-accordion multi="true">
+    <mat-expansion-panel *ngFor="let fund of dataSource">
+      <mat-expansion-panel-header *ngIf="fund.isGroupBy === true">
+        <mat-panel-title> {{ fund.name }} </mat-panel-title>
+        <mat-panel-description>
+          {{ fund.type }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-card>
+        <mat-card-content>
+          <div class="container">
+            <h2 class="">Fund Name</h2>
+            <h2 class="">Balance</h2>
+          </div>
+          <hr />
+
+          <section class="example-section">
+            <button mat-raised-button color="primary" (click)="openModal(fund)">
+              <mat-icon>add</mat-icon>Add Mutual Fund
+            </button>
+          </section>
+          <hr />
+        </mat-card-content>
+      </mat-card>
+      <div *ngFor="let item of dataSource">
+        <div
+          *ngIf="
+            item.isGroupBy === false &&
+            item.item.type === fund.type &&
+            item.item.name === fund.name
+          "
+        >
+          <mat-card
+            *ngIf="item.item.mutualFundId != null && item.item.balance != 0"
+          >
+            <mat-card-content>
+              <div class="container">
+                <h2>{{ item.item.mutualFundId }}</h2>
+                <h2>${{ item.item.balance }}</h2>
+                <!-- class container -->
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <!-- ngIf isGroupBy -->
+        </div>
+        <!-- ngFor let item of dataSource -->
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+<p *ngIf="iras.length <= 0"><strong>No iras yet</strong></p>
+<div class="container">
+  <button mat-raised-button color="primary" (click)="addIraModal()">
+    <mat-icon>add</mat-icon>Add Account
+  </button>
+</div>

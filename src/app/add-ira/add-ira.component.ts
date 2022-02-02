@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IraService } from '../services/ira.service';
 import { Ira } from '../ira/ira.model';
-import { MatDialogRef } from '@angular/material/dialog';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 interface Type {

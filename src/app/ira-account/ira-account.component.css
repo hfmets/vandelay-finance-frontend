@@ -8,3 +8,9 @@ main {
   display: flex;
   justify-content: space-between;
 }
+
+.buy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,18 +1,12 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-import { Ira } from './ira.model';
-import {
-  MatDialog,
-  MAT_DIALOG_SCROLL_STRATEGY_FACTORY,
-} from '@angular/material/dialog';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Ira } from '../ira/ira.model';
+import { MatDialog } from '@angular/material/dialog';
 import { IraService } from '../services/ira.service';
 import { FundsModalComponent } from '../funds-modal/funds-modal.component';
 import { AddIraComponent } from '../add-ira/add-ira.component';
-import { DisclosureComponent } from '../disclosure/disclosure.component';
-// import { AddIraComponent } from '../add-ira/add-ira.component';
-// import { FundsModalComponent } from '../funds-modal/funds-modal.component';
 
-// group by group of params
+// groupBy name and type
 function groupBy(
   array: any[],
   f: { (item: { type: any; name: any }): any[]; (arg0: any): any }
@@ -30,14 +24,13 @@ function groupBy(
 }
 
 @Component({
-  selector: 'app-ira',
-  templateUrl: './ira.component.html',
-  styleUrls: ['./ira.component.css'],
+  selector: 'app-ira-account',
+  templateUrl: './ira-account.component.html',
+  styleUrls: ['./ira-account.component.css'],
 })
-export class IraComponent implements OnInit {
+export class IraAccountComponent implements OnInit, OnDestroy {
   amount: number = 0;
   symbol: string = '';
-  checked = false;
   iras: Ira[] = [];
   tempIraTypeList: string[] = [];
   dataSource: any[] = [];
@@ -128,11 +121,13 @@ export class IraComponent implements OnInit {
   }
 
   openModal(fund: any) {
-    //this.checked1 = !this.checked1;
-    //console.log('this.checked', this.checked1);
     const dialogRef = this.dialog.open(FundsModalComponent, {
       height: '600px',
       width: '1000px',
+      data: {
+        ira_name: fund.name,
+        ira_type: fund.type,
+      },
     });
 
     //gets added mutual fund symbol
@@ -173,12 +168,9 @@ export class IraComponent implements OnInit {
     }
   }
 
-  addMoney() {
-    this.checked = !this.checked;
-  }
-
-  disclosure() {
-    this.dialog.open(DisclosureComponent);
+  buyIra(amount: number) {
+    //update ira account
+    console.log('amount', typeof amount);
   }
 
   ngOnDestroy() {

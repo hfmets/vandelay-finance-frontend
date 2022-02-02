@@ -5,6 +5,7 @@ import {
   OnInit,
   EventEmitter,
   Output,
+  Inject,
 } from '@angular/core';
 import { MutualfundService } from '../services/mutualfund.service';
 import { Fund } from '../funds/fund.model';
@@ -13,6 +14,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { FundComponent } from '../fund/fund.component';
 import { MatDialog } from '@angular/material/dialog';
+import { BuyIraComponent } from '../buy-ira/buy-ira.component';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-funds-modal',
@@ -26,14 +29,23 @@ export class FundsModalComponent implements AfterViewInit, OnInit {
   sort!: MatSort;
   constructor(
     private fundService: MutualfundService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    @Inject(MAT_DIALOG_DATA) private data: string
   ) {}
 
   funds!: MatTableDataSource<Fund>;
   displayedColumns: string[] = ['name', 'symbol', 'price', 'add'];
+  iraName: string = '';
+  iraType: string = '';
   @Output() onAdd = new EventEmitter<any>(true);
 
   ngOnInit(): void {
+    //data passed from IraAccountComponent
+    let s = Object.values(this.data);
+    console.log('s', s[0]);
+    this.iraName = s[0];
+    this.iraType = s[1];
+
     this.fundService.getFunds().subscribe({
       next: (res) => {
         let resArr = Object.keys(res).map((key) => {
@@ -77,5 +89,14 @@ export class FundsModalComponent implements AfterViewInit, OnInit {
   addMutualFund(symbol: string) {
     console.log('added');
     this.onAdd.emit(symbol);
+    this.dialog.open(BuyIraComponent, {
+      height: '400px',
+      width: '700px',
+      data: {
+        symbol: symbol,
+        ira_name: this.iraName,
+        ira_type: this.iraType,
+      },
+    });
   }
 }
