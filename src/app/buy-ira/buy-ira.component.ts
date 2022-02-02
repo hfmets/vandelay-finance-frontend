@@ -1,6 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { IraService } from '../services/ira.service';
+import { MoneyService } from '../services/money.service';
+import { WalletUpdateService } from '../services/wallet-update.service';
 
 @Component({
   selector: 'app-buy-ira',
@@ -10,9 +12,13 @@ import { IraService } from '../services/ira.service';
 export class BuyIraComponent implements OnInit {
   constructor(
     private iraService: IraService,
+    private moneyService: MoneyService,
+    private walletUpdate: WalletUpdateService,
+    private dialogRef: MatDialogRef<BuyIraComponent>,
     @Inject(MAT_DIALOG_DATA) private data: string
   ) {}
 
+  error: string = '';
   newIra: any = {};
   symbol: string = '';
   amount: number = 0;
@@ -40,7 +46,27 @@ export class BuyIraComponent implements OnInit {
       stockId: null,
     };
 
+    const reqBody = {
+      ticker: this.symbol,
+      value: this.amount,
+      sharesTransacted: 0,
+      holdingKind: 'ira',
+    };
+
     this.iraService.addIra(this.newIra).subscribe();
-    window.location.reload();
+    this.moneyService.purchaseStock(reqBody).subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+      error: (err) => {
+        console.log(err);
+        this.error = err.error.message;
+      },
+      complete: () => {
+        this.walletUpdate.changeWalletUpdate(true);
+        this.dialogRef.close();
+      },
+    });
+    //window.location.reload();
   }
 }

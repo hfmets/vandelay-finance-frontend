@@ -9,10 +9,11 @@
       </mat-expansion-panel-header>
       <mat-card>
         <mat-card-content>
-          <div class="container">
-            <h2 class="">Fund Name</h2>
-            <h2 class="">Balance</h2>
-          </div>
+          <!-- <div class="container">
+            <h2>Fund Name</h2>
+            <h2>Balance</h2>
+            <h2></h2>
+          </div> -->
           <hr />
 
           <section class="example-section">
@@ -37,7 +38,8 @@
             <mat-card-content>
               <div class="container">
                 <h2>{{ item.item.mutualFundId }}</h2>
-                <h2>${{ item.item.balance }}</h2>
+                <h2>Balance: ${{ item.item.balance }}</h2>
+                <h2>{{ name }}</h2>
                 <!-- div class container -->
               </div>
             </mat-card-content>

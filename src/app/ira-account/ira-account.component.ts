@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { IraService } from '../services/ira.service';
 import { FundsModalComponent } from '../funds-modal/funds-modal.component';
 import { AddIraComponent } from '../add-ira/add-ira.component';
+import { MutualfundService } from '../services/mutualfund.service';
 
 // groupBy name and type
 function groupBy(
@@ -31,6 +32,7 @@ function groupBy(
 export class IraAccountComponent implements OnInit, OnDestroy {
   amount: number = 0;
   symbol: string = '';
+  name: string = '';
   iras: Ira[] = [];
   tempIraTypeList: string[] = [];
   dataSource: any[] = [];
@@ -40,7 +42,11 @@ export class IraAccountComponent implements OnInit, OnDestroy {
 
   private irasSub: Subscription = new Subscription();
 
-  constructor(private iraService: IraService, private dialog: MatDialog) {}
+  constructor(
+    private fundService: MutualfundService,
+    private iraService: IraService,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.iraService.getIra(this.userId).subscribe({
@@ -103,6 +109,13 @@ export class IraAccountComponent implements OnInit, OnDestroy {
         });
         //console.log('dataSource1', this.dataSource);
       },
+    });
+  }
+
+  getFundName(symbol: string) {
+    this.fundService.getFund(symbol).subscribe((res) => {
+      this.name = res[0].name;
+      console.log('res', res[0].name);
     });
   }
 
