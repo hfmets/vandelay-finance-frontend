@@ -58,6 +58,7 @@ import { EztraderComponent } from './eztrader/eztrader.component';
 import { BuyEtfDialogComponent } from './buy-etf-dialog/buy-etf-dialog.component';
 import { EztraderdashboardComponent } from './eztraderdashboard/eztraderdashboard.component';
 import { IraTypesComponent } from './ira-types/ira-types.component';
+import { DelorComponent } from './delor/delor.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +89,7 @@ import { IraTypesComponent } from './ira-types/ira-types.component';
     BuyEtfDialogComponent,
     EztraderdashboardComponent,
     IraTypesComponent,
+    DelorComponent,
   ],
   imports: [
     BrowserModule,
