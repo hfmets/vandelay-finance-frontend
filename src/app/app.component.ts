@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
@@ -19,7 +20,8 @@ export class AppComponent {
     private cookieService: CookieService,
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,
-    private auth: AuthService
+    private auth: AuthService,
+    private router: Router
   ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -29,5 +31,11 @@ export class AppComponent {
 
   ngOnInit() {
     this.signedIn = this.cookieService.check('connect.sid');
+  }
+
+  logout() {
+    this.cookieService.delete('connect.sid');
+    this.auth.emitLoginChange(false);
+    this.router.navigateByUrl('/home');
   }
 }

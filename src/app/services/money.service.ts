@@ -14,6 +14,8 @@ export class MoneyService {
   stocksUrl: string =
     'https://mysterious-dawn-78553.herokuapp.com/https://obscure-oasis-94568.herokuapp.com/stocks/get/stocks/tickers';
 
+  fundUrl: string = 'https://financialmodelingprep.com/api/v3/quote/';
+
   purchaseStockUrl: string = 'api/transactions/purchase';
 
   sellStockUrl: string = 'api/transactions/sell';
@@ -32,6 +34,12 @@ export class MoneyService {
 
   getStocks(): Observable<any> {
     return this.http.get<any>(this.stocksUrl);
+  }
+
+  getFund(ticker: string): Observable<any> {
+    return this.http.get<any>(
+      `${this.fundUrl}${ticker}?apikey=dccf9329500f00a6e72e4bc4bc1a681b`
+    );
   }
 
   purchaseStock(reqBody: any): Observable<any> {
