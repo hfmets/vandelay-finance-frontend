@@ -21,6 +21,7 @@ export class BuyIraComponent implements OnInit {
   error: string = '';
   newIra: any = {};
   symbol: string = '';
+  priceStr: string = '';
   amount: number = 0;
   iraName: string = '';
   iraType: string = '';
@@ -30,8 +31,9 @@ export class BuyIraComponent implements OnInit {
     // data passed from FundsModalComponent
     let s = Object.values(this.data);
     this.symbol = s[0];
-    this.iraName = s[1];
-    this.iraType = s[2];
+    this.priceStr = s[1];
+    this.iraName = s[2];
+    this.iraType = s[3];
   }
 
   buyIra() {
@@ -49,7 +51,7 @@ export class BuyIraComponent implements OnInit {
     const reqBody = {
       ticker: this.symbol,
       value: this.amount,
-      sharesTransacted: 0,
+      sharesTransacted: this.amount / Number(this.priceStr),
       holdingKind: 'ira',
     };
 

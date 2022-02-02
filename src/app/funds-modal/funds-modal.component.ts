@@ -83,13 +83,14 @@ export class FundsModalComponent implements AfterViewInit, OnInit {
   ngAfterViewInit(): void {}
 
   //update ira with mutual fund
-  addMutualFund(symbol: string) {
-    console.log('added');
+  addMutualFund(symbol: string, price: number) {
+    //console.log('added');
     this.dialog.open(BuyIraComponent, {
       height: '250px',
       width: '300px',
       data: {
         symbol: symbol,
+        price: price,
         ira_name: this.iraName,
         ira_type: this.iraType,
       },
