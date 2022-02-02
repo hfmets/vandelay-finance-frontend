@@ -48,27 +48,27 @@ export class BuyIraComponent implements OnInit {
       stockId: null,
     };
 
-    const reqBody = {
-      ticker: this.symbol,
-      value: this.amount,
-      sharesTransacted: this.amount / Number(this.priceStr),
-      holdingKind: 'ira',
-    };
+    // const reqBody = {
+    //   ticker: this.symbol,
+    //   value: this.amount,
+    //   sharesTransacted: this.amount / Number(this.priceStr),
+    //   holdingKind: 'ira',
+    // };
 
+    // this.moneyService.purchaseStock(reqBody).subscribe({
+    //   next: (res) => {
+    //     console.log(res);
+    //   },
+    //   error: (err) => {
+    //     console.log(err);
+    //     this.error = err.error.message;
+    //   },
+    //   complete: () => {
+    //     this.walletUpdate.changeWalletUpdate(true);
+    //     this.dialogRef.close();
+    //   },
+    // });
     this.iraService.addIra(this.newIra).subscribe();
-    this.moneyService.purchaseStock(reqBody).subscribe({
-      next: (res) => {
-        console.log(res);
-      },
-      error: (err) => {
-        console.log(err);
-        this.error = err.error.message;
-      },
-      complete: () => {
-        this.walletUpdate.changeWalletUpdate(true);
-        this.dialogRef.close();
-      },
-    });
     //window.location.reload();
   }
 }

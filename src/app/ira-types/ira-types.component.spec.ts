@@ -1,3 +1,4 @@
+import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { IraTypesComponent } from './ira-types.component';
@@ -8,9 +9,8 @@ describe('IraTypesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IraTypesComponent ]
-    })
-    .compileComponents();
+      declarations: [IraTypesComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +19,7 @@ describe('IraTypesComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the Ira Types Component', () => {
     expect(component).toBeTruthy();
   });
 });

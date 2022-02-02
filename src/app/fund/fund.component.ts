@@ -1,5 +1,4 @@
 import { Component, OnInit, Inject, AfterViewInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { MutualfundService } from '../services/mutualfund.service';
 import { Fund } from '../funds/fund.model';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -15,7 +14,6 @@ export class FundComponent implements OnInit, AfterViewInit {
   data_table = Array();
 
   constructor(
-    private route: ActivatedRoute,
     private fundsService: MutualfundService,
     @Inject(MAT_DIALOG_DATA) private data: string
   ) {}
@@ -27,7 +25,7 @@ export class FundComponent implements OnInit, AfterViewInit {
     console.log('symbol1', s[0]);
     this.fundsService.getFund(symbol).subscribe({
       next: (res) => {
-        //console.log('res', res);
+        console.log('resLen', res.length);
         let fund = {
           symbol: res[0].symbol,
           name: res[0].name,
