@@ -29,9 +29,9 @@ export class WalletComponent implements OnInit {
   }
 
   setBalance() {
-    this.moneyService
-      .getAccountBalance()
-      .subscribe((res) => (this.balance = res.accountBalance));
+    this.moneyService.getAccountBalance().subscribe((res) => {
+      this.balance = res.accountBalance;
+    });
   }
 
   openDialog() {
