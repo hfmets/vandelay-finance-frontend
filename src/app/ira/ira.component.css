@@ -3,8 +3,3 @@ main {
   width: 80%;
   margin: 1rem auto;
 }
-
-.container {
-  display: flex;
-  justify-content: space-between;
-}

@@ -3,8 +3,6 @@ import {
   Component,
   ViewChild,
   OnInit,
-  EventEmitter,
-  Output,
   Inject,
 } from '@angular/core';
 import { MutualfundService } from '../services/mutualfund.service';
@@ -37,7 +35,6 @@ export class FundsModalComponent implements AfterViewInit, OnInit {
   displayedColumns: string[] = ['name', 'symbol', 'price', 'add'];
   iraName: string = '';
   iraType: string = '';
-  @Output() onAdd = new EventEmitter<any>(true);
 
   ngOnInit(): void {
     //data passed from IraAccountComponent
@@ -88,7 +85,6 @@ export class FundsModalComponent implements AfterViewInit, OnInit {
   //update ira with mutual fund
   addMutualFund(symbol: string) {
     console.log('added');
-    this.onAdd.emit(symbol);
     this.dialog.open(BuyIraComponent, {
       height: '400px',
       width: '700px',

@@ -107,37 +107,13 @@ export class IraAccountComponent implements OnInit, OnDestroy {
   }
 
   openModal(fund: any) {
-    const dialogRef = this.dialog.open(FundsModalComponent, {
+    this.dialog.open(FundsModalComponent, {
       height: '600px',
       width: '1000px',
       data: {
         ira_name: fund.name,
         ira_type: fund.type,
       },
-    });
-
-    //gets added mutual fund symbol
-    dialogRef.componentInstance.onAdd.subscribe((result) => {
-      this.symbol = result;
-      //create ira account with mutualFund Symbol
-      //fund.name
-      //fund.type
-      let new_ira = {
-        name: fund.name,
-        balance: 0,
-        type: fund.type,
-        userId: this.userId,
-        mutualFundId: this.symbol,
-        etfId: null,
-        stockId: null,
-      };
-      this.iraService.addIra(new_ira).subscribe();
-      console.log('symbol added', this.symbol);
-    });
-
-    dialogRef.afterClosed().subscribe(() => {
-      console.log('symbol2', this.symbol);
-      window.location.reload();
     });
   }
 
@@ -152,11 +128,6 @@ export class IraAccountComponent implements OnInit, OnDestroy {
     } else {
       return false;
     }
-  }
-
-  buyIra(amount: number) {
-    //update ira account
-    console.log('amount', typeof amount);
   }
 
   ngOnDestroy() {
