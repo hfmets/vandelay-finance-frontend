@@ -27,9 +27,16 @@ export class SellHoldingsDialogComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.moneyService.getStock(this.data.ticker).subscribe((res) => {
-      this.sellingPrice = res.data[0].close;
-    });
+    if (this.data.kind == 'stock') {
+      this.moneyService.getStock(this.data.ticker).subscribe((res) => {
+        this.sellingPrice = res.data[0].close;
+      });
+    } else if (this.data.kind == 'fund') {
+      this.moneyService.getFund(this.data.ticker).subscribe((res) => {
+        console.log(res);
+        this.sellingPrice = res[0].price;
+      });
+    }
   }
 
   submitForm() {

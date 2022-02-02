@@ -7,46 +7,22 @@
     <app-horizontal></app-horizontal>
   </mat-toolbar>
 
-  <mat-sidenav-container
-    class="sidenav-container"
-    [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
-  >
-    <mat-sidenav
-      #snav
-      [mode]="mobileQuery.matches ? 'over' : 'side'"
-      role="navigation"
-      [fixedInViewport]="mobileQuery.matches"
-      fixedTopGap="56"
-      class="mat-elevation-z8"
-    >
+  <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" role="navigation"
+      [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" class="mat-elevation-z8">
       <button mat-button class="menu-button" routerLink="/home">
         <mat-icon>home</mat-icon>
         <span>Home</span>
       </button>
-      <button
-        mat-button
-        class="menu-button"
-        *ngIf="!signedIn"
-        routerLink="/sign-up"
-      >
+      <button mat-button class="menu-button" *ngIf="!signedIn" routerLink="/sign-up">
         <mat-icon>person_add</mat-icon>
         <span>Sign Up</span>
       </button>
-      <button
-        mat-button
-        class="menu-button"
-        *ngIf="!signedIn"
-        routerLink="/login"
-      >
+      <button mat-button class="menu-button" *ngIf="!signedIn" routerLink="/login">
         <mat-icon>login</mat-icon>
         <span>Login</span>
       </button>
-      <button
-        mat-button
-        class="menu-button"
-        *ngIf="signedIn"
-        routerLink="/myaccount"
-      >
+      <button mat-button class="menu-button" *ngIf="signedIn" routerLink="/myaccount">
         <mat-icon>account_circle</mat-icon>
         <span>My Account</span>
       </button>
@@ -94,7 +70,11 @@
         <mat-icon>access_time</mat-icon>
         <span>DeLor</span>
       </button>
-      
+      <button mat-button class="menu-button" *ngIf='signedIn' (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+
     </mat-sidenav>
     <mat-sidenav-content role="main">
       <div class="content mat-elevation-z8">

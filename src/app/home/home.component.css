@@ -11,7 +11,7 @@
   line-height: 50px;
   padding: 16px 8px;
   font-size: 25px;
-  background-color: rgba(7, 32, 134, 0.671);
+  background-color: #3f51b5;
   border: 0.5px solid #999;
   text-align: center;
   font-size: 25px;
@@ -20,7 +20,7 @@
 
 .button_collection {
   color: white;
-  background-color: rgba(7, 32, 134, 0.671);
+  background-color: #3f51b5;
   display: grid;
   border-bottom: 1px solid #999;
   border-left: 1px solid#999;
@@ -42,12 +42,12 @@
 }
 
 .buttons:hover {
-  background-color: #323330;
-  color: black;
+  background-color: white;
+  color: #3f51b5;
   transition: 0.5s ease-in-out;
 }
 #screen_display:hover {
-  background-color: #323330;
-  color: black;
+  background-color: white;
+  color: #3f51b5;
   transition: 0.5s ease-in-out;
 }
