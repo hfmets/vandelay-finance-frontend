@@ -43,7 +43,6 @@ export class IraAccountComponent implements OnInit, OnDestroy {
   constructor(private iraService: IraService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
-    //let id = 20;
     this.iraService.getIra(this.userId).subscribe({
       next: (res) => {
         //console.log('response', res);
@@ -67,27 +66,16 @@ export class IraAccountComponent implements OnInit, OnDestroy {
 
         //console.log('Fund Payload ', payload);
         this.iras = funds;
-        console.log('payload', this.iras);
 
-        //group each ira by type and name
+        //group each ira by Ira type and Ira name
         this.new_data = groupBy(
           this.iras,
           function (item: { type: any; name: any }) {
             return [item.type, item.name];
           }
         );
-        //this.new_data = groupedBy(this.iras, 'type');
-        //console.log('groupedby array1', new_data1);
-        console.log('groupedby array2', this.new_data);
-        //return this.new_data;
-        //this.dataSource = new_data;
-        //console.log('dataSource', this.dataSource);
-
+        // get name value and type value for each group
         Object.entries(this.new_data).forEach(([key, value]) => {
-          //for each key, get the type and name
-          //console.log('key', key);
-          //console.log('value', value);
-          //console.log('len', value.length);
           let types = [];
           let names = [];
           for (let i = 0; i < 1; i++) {
@@ -113,11 +101,9 @@ export class IraAccountComponent implements OnInit, OnDestroy {
             this.dataSource.push({ item, isGroupBy: false });
           });
         });
-
-        console.log('dataSource1', this.dataSource);
+        //console.log('dataSource1', this.dataSource);
       },
     });
-    console.log('data2', this.dataSource);
   }
 
   openModal(fund: any) {
