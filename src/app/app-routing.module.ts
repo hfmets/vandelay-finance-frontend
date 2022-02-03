@@ -8,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 import { MyAccountComponent } from './my-account/my-account.component';
+import { IraComponent } from './ira/ira.component';
 import { EztraderComponent } from './eztrader/eztrader.component';
 import { EztraderdashboardComponent } from './eztraderdashboard/eztraderdashboard.component';
 import { DelorComponent } from './delor/delor.component';
@@ -20,10 +21,12 @@ const routes: Routes = [
   { path: 'stocks', component: StocksComponent },
   { path: 'mutualFunds', component: FundsComponent },
   { path: 'etfFunds', component: EtfsComponent },
+  { path: 'ira', component: IraComponent },
   { path: 'news', component: NewsfeedComponent },
     { path: 'eztrader', component: EztraderComponent },
     { path: 'eztraderdash', component: EztraderdashboardComponent },
         { path: 'delor', component: DelorComponent },
+
 
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },

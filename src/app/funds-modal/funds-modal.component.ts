@@ -1,43 +1,53 @@
-import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ViewChild,
+  OnInit,
+  Inject,
+} from '@angular/core';
 import { MutualfundService } from '../services/mutualfund.service';
 import { Fund } from '../funds/fund.model';
-import { FundComponent } from '../fund/fund.component';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { FundComponent } from '../fund/fund.component';
 import { MatDialog } from '@angular/material/dialog';
-import { MatDialogRef } from '@angular/material/dialog';
-import { BuyMutualFundsDialogComponent } from '../buy-mutual-funds-dialog/buy-mutual-funds-dialog.component';
-import { CookieService } from 'ngx-cookie-service';
+import { BuyIraComponent } from '../buy-ira/buy-ira.component';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-funds',
-  templateUrl: './funds.component.html',
-  styleUrls: ['./funds.component.css'],
+  selector: 'app-funds-modal',
+  templateUrl: './funds-modal.component.html',
+  styleUrls: ['./funds-modal.component.css'],
 })
-export class FundsComponent implements AfterViewInit, OnInit {
+export class FundsModalComponent implements AfterViewInit, OnInit {
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
-  loggedIn!: boolean;
   constructor(
     private fundService: MutualfundService,
     private dialog: MatDialog,
-    private cookieService: CookieService
+    @Inject(MAT_DIALOG_DATA) private data: string
   ) {}
 
-  //console.log(dataSource);
   funds!: MatTableDataSource<Fund>;
-  displayedColumns: string[] = ['name', 'symbol', 'price', 'buy'];
+  displayedColumns: string[] = ['name', 'symbol', 'price', 'add'];
+  iraName: string = '';
+  iraType: string = '';
 
   ngOnInit(): void {
+    //data passed from IraAccountComponent
+    let s = Object.values(this.data);
+    console.log('s', s[0]);
+    this.iraName = s[0];
+    this.iraType = s[1];
+
     this.fundService.getFunds().subscribe({
       next: (res) => {
         let resArr = Object.keys(res).map((key) => {
           return res[key];
         });
-        // delete cache/api and time from response
         resArr = resArr.slice(0, -2);
         let funds: Fund[] = resArr.map((item) => {
           return {
@@ -54,13 +64,6 @@ export class FundsComponent implements AfterViewInit, OnInit {
       },
     });
     //console.log('2', this.dataSource);
-    this.loggedIn = this.cookieService.check('connect.sid');
-  }
-
-  ngAfterViewInit(): void {}
-
-  applyFilter(filterValue: string) {
-    this.funds.filter = filterValue.trim().toLowerCase();
   }
 
   openModal(symbol: string) {
@@ -72,16 +75,25 @@ export class FundsComponent implements AfterViewInit, OnInit {
         symbol: symbol,
       },
     });
-    // this.dialogRef = this.dialog.open(FundComponent, {
-    //   width: '600px',
-    //   height: '1000px',
-    //   data: {
-    //     data: symbol,
-    //   },
-    // });
   }
 
-  openDialog(fund: Fund) {
-    this.dialog.open(BuyMutualFundsDialogComponent, { data: fund });
+  applyFilter(filterValue: string) {
+    this.funds.filter = filterValue.trim().toLowerCase();
+  }
+  ngAfterViewInit(): void {}
+
+  //update ira with mutual fund
+  addMutualFund(symbol: string, price: number) {
+    //console.log('added');
+    this.dialog.open(BuyIraComponent, {
+      height: '250px',
+      width: '300px',
+      data: {
+        symbol: symbol,
+        price: price,
+        ira_name: this.iraName,
+        ira_type: this.iraType,
+      },
+    });
   }
 }

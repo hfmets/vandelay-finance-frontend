@@ -1,0 +1,16 @@
+main {
+  margin-top: 1rem;
+  width: 80%;
+  margin: 1rem auto;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

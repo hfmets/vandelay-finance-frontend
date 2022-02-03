@@ -1,0 +1,13 @@
+table {
+  width: auto;
+}
+
+table td,
+table th {
+  padding: 5px 15px;
+}
+
+h1 {
+  color: black;
+  text-align: center;
+}

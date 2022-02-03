@@ -1,0 +1,134 @@
+<main>
+  <mat-tab-group>
+    <mat-tab label="My Ira Accounts">
+      <app-ira-account></app-ira-account>
+    </mat-tab>
+    <mat-tab label="Understand the Benefits">
+      <h1>What is an ira?</h1>
+      <br />
+      <p>
+        An IRA (individual retirement account) is a personal, tax-deferred
+        account the IRS created to give investors an easy way to save for
+        retirement.
+      </p>
+      <br />
+      <h1>Why invest an ira?</h1>
+      <br />
+      <div class="options">
+        <img
+          src="https://d338t8kmirgyke.cloudfront.net/icons/icon_pngs/000/000/167/original/money-bag.png"
+          alt="money"
+          width="100"
+          height="100"
+        />
+        <br />
+
+        <strong><p>Tax Break Benefits</p></strong>
+      </div>
+      <div class="options">
+        <img
+          src="https://static.thenounproject.com/png/3293012-200.png"
+          alt="growth"
+          width="100"
+          height="100"
+        />
+        <br />
+        <strong><p>Compound Growth</p></strong>
+      </div>
+      <div class="options">
+        <img
+          src="https://cdn1.iconfinder.com/data/icons/loans-outline/60/047_-_Flexible_Payments-loans-debt-money-512.png"
+          alt="flexible"
+          width="100"
+          height="100"
+        />
+        <br />
+        <strong><p>Investment Flexibility</p></strong>
+      </div>
+    </mat-tab>
+    <mat-tab label="Traditional vs. Roth">
+      <app-ira-types></app-ira-types>
+    </mat-tab>
+    <mat-tab label="FAQ">
+      <mat-accordion multi="true">
+        <strong>Frequently Asked Questions</strong>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title
+              >Q: What is the maximum contribution ?</mat-panel-title
+            >
+          </mat-expansion-panel-header>
+          <mat-card>
+            <mat-card-content>
+              You can contribute a maximum of $6,000 to a Traditional IRA, if
+              under 50 yrs old and a maximum of $7,000 for those 50 yrs old and
+              over.
+            </mat-card-content>
+          </mat-card>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title
+              >Q: What are the penalties for early withdrawl ?</mat-panel-title
+            >
+          </mat-expansion-panel-header>
+          <mat-card>
+            <mat-card-content
+              >There are no penalties if you withdraw before the age of 72,
+              however withdrawing before 59 1/2 yrs old, there is a 10% penalty
+              and additional income tax on the withdrawl.
+            </mat-card-content>
+          </mat-card>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Q: How do I contribute ?</mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-card>
+            <mat-card-content
+              >Select your account, Click Add Mutual Fund, type in your
+              contribution amount, and click Buy!
+            </mat-card-content>
+          </mat-card>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Q: How do I add a fund ?</mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-card>
+            <mat-card-content>
+              After you have selected your account, click "+Add Mutual Fund" and
+              click "+" to add that fund.
+            </mat-card-content>
+          </mat-card>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title
+              >Q: Should I open Traditional or Roth ?</mat-panel-title
+            >
+          </mat-expansion-panel-header>
+          <mat-card>
+            <mat-card-content>
+              See Traditional vs. Roth tab to weigh your options.
+            </mat-card-content>
+          </mat-card>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title
+              >Q: Is there an age limit to open an IRA ?</mat-panel-title
+            >
+          </mat-expansion-panel-header>
+          <mat-card>
+            <mat-card-content>
+              As of December 20, 2019, the Secure Act removed the top age limit
+              of 70.5 yrs old. As long as you are still working, there is no age
+              limit to contribute to a traditional IRA.
+            </mat-card-content>
+          </mat-card>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-tab>
+  </mat-tab-group>
+</main>

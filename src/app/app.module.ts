@@ -44,6 +44,11 @@ import { WalletComponent } from './wallet/wallet.component';
 import { AddFundsDialogComponent } from './add-funds-dialog/add-funds-dialog.component';
 import { MyAccountComponent } from './my-account/my-account.component';
 import { SellHoldingsDialogComponent } from './sell-holdings-dialog/sell-holdings-dialog.component';
+import { IraComponent } from './ira/ira.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FundsModalComponent } from './funds-modal/funds-modal.component';
+import { AddIraComponent } from './add-ira/add-ira.component';
 import { BuyMutualFundsDialogComponent } from './buy-mutual-funds-dialog/buy-mutual-funds-dialog.component';
 
 import { HorizontalComponent } from './visual/horizontalGraph/horizontal/horizontal.component';
@@ -51,7 +56,11 @@ import { HorizontalComponent } from './visual/horizontalGraph/horizontal/horizon
 import { EztraderComponent } from './eztrader/eztrader.component';
 import { BuyEtfDialogComponent } from './buy-etf-dialog/buy-etf-dialog.component';
 import { EztraderdashboardComponent } from './eztraderdashboard/eztraderdashboard.component';
+import { IraTypesComponent } from './ira-types/ira-types.component';
 import { DelorComponent } from './delor/delor.component';
+import { IraAccountComponent } from './ira-account/ira-account.component';
+import { BuyIraComponent } from './buy-ira/buy-ira.component';
+import { AddMoneyComponent } from './add-money/add-money.component';
 
 @NgModule({
   declarations: [
@@ -69,15 +78,22 @@ import { DelorComponent } from './delor/delor.component';
     AddFundsDialogComponent,
     MyAccountComponent,
     SellHoldingsDialogComponent,
+    IraComponent,
     VisualComponent,
     TableComponent,
     GraphComponent,
+    FundsModalComponent,
+    AddIraComponent,
     BuyMutualFundsDialogComponent,
     HorizontalComponent,
     EztraderComponent,
     BuyEtfDialogComponent,
     EztraderdashboardComponent,
+    IraTypesComponent,
     DelorComponent,
+    IraAccountComponent,
+    BuyIraComponent,
+    AddMoneyComponent,
   ],
   imports: [
     BrowserModule,
@@ -103,6 +119,8 @@ import { DelorComponent } from './delor/delor.component';
     MatMenuModule,
     MatSortModule,
     MatTabsModule,
+    MatExpansionModule,
+    MatCheckboxModule,
     MatProgressSpinnerModule,
   ],
   providers: [CookieService],
