@@ -25,7 +25,19 @@ export class StocksComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort)
   sort!: MatSort;
 
-  displayedColumns = ['ticker', 'name', 'open', 'high', 'low', 'close', 'buy'];
+
+  displayedColumns = [
+    'symbol',
+    'name',
+    'price',
+    'changesPercentage',
+    'change',
+    'dayLow',
+    'dayHigh',
+    'open',
+    'previousClose',
+    'buy'
+  ];
 
   constructor(
     private moneyService: MoneyService,
@@ -38,19 +50,23 @@ export class StocksComponent implements OnInit, AfterViewInit {
     this.moneyService.getStocks().subscribe({
       next: (res) => {
         let resArr = Object.keys(res).map((key) => {
-          return res[key];
+          return res[key].stock;
         });
         resArr = resArr.slice(0, -2);
         let stocks: Stock[] = resArr.map((item) => {
+
           return {
-            ticker: item.symbol,
+            symbol: item.symbol,
             name: item.name,
-            open: item.stock.open || null,
-            high: item.stock.high || null,
-            low: item.stock.low || null,
-            last: item.stock.last || null,
-            close: item.stock.close || null,
+            price: item.price,
+            changesPercentage: item.changesPercentage,
+            change: item.change,
+            dayLow: item.dayLow,
+            dayHigh: item.dayHigh,
+            open: item.open,
+            previousClose: item.previousClose,
           };
+          // return {...row}
         });
         this.stocks = new MatTableDataSource<Stock>(stocks);
         this.stocks.paginator = this.paginator;

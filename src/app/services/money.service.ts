@@ -12,7 +12,7 @@ export class MoneyService {
     'https://api.marketstack.com/v1/eod/latest?access_key=54b1c1a5b9ea427c6d17888d33b619aa&symbols=';
 
   stocksUrl: string =
-    'https://mysterious-dawn-78553.herokuapp.com/https://obscure-oasis-94568.herokuapp.com/stocks/get/stocks/tickers';
+    'https://mysterious-dawn-78553.herokuapp.com/https://obscure-oasis-94568.herokuapp.com/stocks/stocks';
 
   fundUrl: string = 'https://financialmodelingprep.com/api/v3/quote/';
 
