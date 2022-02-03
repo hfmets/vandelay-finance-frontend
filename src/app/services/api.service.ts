@@ -32,7 +32,7 @@ export class ApiService {
       this.SET_TICKER = ticker;
     }
     const url = `${this.SERVER_URL}${this.SET_TICKER}`;
-    console.log('what is the ticker', this.SET_TICKER);
+
     return this.httpClient.get(url).pipe(catchError(this.handleError));
   }
 

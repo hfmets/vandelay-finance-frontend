@@ -8,7 +8,6 @@ export interface ETF {
   change: number,
   dayLow: number,
   dayHigh: number,
- 
   open: number,
   previousClose: number,
  

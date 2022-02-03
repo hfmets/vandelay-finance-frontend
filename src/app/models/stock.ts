@@ -1,9 +1,11 @@
 export interface Stock {
-  ticker: string;
-  name?: string;
-  open?: number;
-  high?: number;
-  low?: number;
-  last?: number;
-  close?: number;
+  symbol: string;
+  name: string;
+  price: number;
+  changesPercentage: number;
+  change: number;
+  dayLow: number;
+  dayHigh: number;
+  open: number;
+  previousClose: number;
 }

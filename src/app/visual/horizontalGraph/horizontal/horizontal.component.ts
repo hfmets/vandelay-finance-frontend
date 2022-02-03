@@ -44,7 +44,6 @@ export class HorizontalComponent implements OnInit {
         } else if (eachIndex.changesPercentage < 0) {
           newTrend = 0;
         }
-
         return {
           symbol: newSymbol,
           name: eachIndex.name,
@@ -60,7 +59,6 @@ export class HorizontalComponent implements OnInit {
         };
       });
       this.resArray = res;
-      console.log('this is horzontal', this.resArray[0]);
     });
   }
   
