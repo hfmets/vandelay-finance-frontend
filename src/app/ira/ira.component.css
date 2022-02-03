@@ -3,3 +3,14 @@ main {
   width: 80%;
   margin: 1rem auto;
 }
+
+.options {
+  display: inline-block;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 30%;
+}
+
+img {
+  padding-bottom: 40px;
+}

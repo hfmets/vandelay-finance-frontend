@@ -37,6 +37,7 @@ export class FundsComponent implements AfterViewInit, OnInit {
         let resArr = Object.keys(res).map((key) => {
           return res[key];
         });
+        // delete cache/api and time from response
         resArr = resArr.slice(0, -2);
         let funds: Fund[] = resArr.map((item) => {
           return {

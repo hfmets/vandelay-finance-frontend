@@ -29,12 +29,12 @@ describe('MutualfundService', () => {
   //   });
   // });
 
-  it('should return 1 fund', (done: DoneFn) => {
-    fundService.getFund('SLGD').subscribe((value) => {
-      //expect(value.length).toEqual(1);
-      console.log('value length', value.length);
-      expect(value[0].symbol).toEqual('SLGD');
-      done();
-    });
-  });
+  // it('should return 1 fund', (done: DoneFn) => {
+  //   fundService.getFund('SLGD').subscribe((value) => {
+  //     //expect(value.length).toEqual(1);
+  //     console.log('value length', value.length);
+  //     expect(value[0].symbol).toEqual('SLGD');
+  //     done();
+  //   });
+  // });
 });

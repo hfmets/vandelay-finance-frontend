@@ -2,6 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { IraService } from '../services/ira.service';
 import { MoneyService } from '../services/money.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AddMoneyComponent } from '../add-money/add-money.component';
 
 @Component({
   selector: 'app-buy-ira',
@@ -12,6 +14,7 @@ export class BuyIraComponent implements OnInit {
   constructor(
     private iraService: IraService,
     private moneyService: MoneyService,
+    private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) private data: string
   ) {}
 
@@ -25,7 +28,8 @@ export class BuyIraComponent implements OnInit {
   //userId is a string
   userId: string = '';
   //userId: number = 7;
-  userBalance: number = 11000;
+  userBalance: number = 0;
+  enoughMoney: boolean = false;
 
   ngOnInit(): void {
     // data passed from FundsModalComponent
@@ -38,14 +42,15 @@ export class BuyIraComponent implements OnInit {
 
   buyIra() {
     // get users id and account balance
-    // this.moneyService.getAccountBalance().subscribe((res) => {
-    //   this.userBalance = res.accountBalance;
-    //   //this.userId = res.userId;
-    // });
-    this.userId = 'p392-2rej3-243e-3eii4';
+    this.moneyService.getAccountBalance().subscribe((res) => {
+      this.userBalance = res.accountBalance;
+      this.userId = res.userId;
+    });
+    //this.userId = 'p392-2rej3-243e-3eii4';
 
     // check user has enough money
     if (this.userBalance > this.amount) {
+      this.enoughMoney = true;
       //create ira
       this.newIra = {
         name: this.iraName,
@@ -59,8 +64,8 @@ export class BuyIraComponent implements OnInit {
       this.iraService.addIra(this.newIra).subscribe();
       window.location.reload();
     } else {
-      // tell user to add more money
-      console.log('add more money');
+      this.dialog.open(AddMoneyComponent);
     }
+    console.log('enough money', this.enoughMoney);
   }
 }
