@@ -1,12 +1,11 @@
 .sidenav-container {
   height: 100%;
-    background-color: #98FB98;
-
+  background-color: #98fb98;
 }
 
 .sidenav {
   width: 200px;
-  background-color: #00A86B;
+  background-color: #00a86b;
 }
 
 .sidenav .mat-toolbar {
@@ -29,7 +28,7 @@
   left: 15px;
   right: 15px;
   bottom: 15px;
-    background-color: skyblue;
+  background-color: skyblue;
 }
 
 .more-button {
@@ -41,45 +40,33 @@
 .dashboard-card-content {
   text-align: center;
 }
-.mat-card:not([class*=mat-elevation-z]) {
-    box-shadow: 0 0px 7px -1px rgba(0,0,0,1), 
-                0 0px 1px 0 rgba(0,0,0,1), 
-                0 3px 10px 0 rgba(0,0,0,1);
+.mat-card:not([class*="mat-elevation-z"]) {
+  box-shadow: 0 0px 7px -1px rgba(0, 0, 0, 1), 0 0px 1px 0 rgba(0, 0, 0, 1),
+    0 3px 10px 0 rgba(0, 0, 0, 1);
 }
 
-.mat-sidenav:not([class*=mat-elevation-z]) {
-    box-shadow: 0 2px 10px -1px rgba(0,0,0,1), 
-                0 1px 1px 0 rgba(0,0,0,1), 
-                0 6px 10px 0 rgba(0,0,0,1);
+.mat-sidenav:not([class*="mat-elevation-z"]) {
+  box-shadow: 0 2px 10px -1px rgba(0, 0, 0, 1), 0 1px 1px 0 rgba(0, 0, 0, 1),
+    0 6px 10px 0 rgba(0, 0, 0, 1);
 }
-mat-label:not([class*=mat-elevation-z]) {
-    box-shadow: 0 2px 10px -1px rgba(0,0,0,1), 
-                0 1px 1px 0 rgba(0,0,0,1), 
-                0 6px 10px 0 rgba(0,0,0,1);
+mat-label:not([class*="mat-elevation-z"]) {
+  box-shadow: 0 2px 10px -1px rgba(0, 0, 0, 1), 0 1px 1px 0 rgba(0, 0, 0, 1),
+    0 6px 10px 0 rgba(0, 0, 0, 1);
 }
-mat-divider:not([class*=mat-elevation-z]) {
-    box-shadow: 0 2px 10px -1px rgba(0,0,0,1), 
-                0 1px 1px 0 rgba(0,0,0,1), 
-                0 6px 10px 0 rgba(0,0,0,1);
+mat-divider:not([class*="mat-elevation-z"]) {
+  box-shadow: 0 2px 10px -1px rgba(0, 0, 0, 1), 0 1px 1px 0 rgba(0, 0, 0, 1),
+    0 6px 10px 0 rgba(0, 0, 0, 1);
 }
-.toolbarTOP{
-  background-color: #00A86B;
-   box-shadow: 0 2px 10px -1px rgba(0,0,0,1), 
-                0 1px 1px 0 rgba(0,0,0,1), 
-                0 6px 10px 0 rgba(0,0,0,1);
-
+.toolbarTOP {
+  background-color: #00a86b;
+  box-shadow: 0 2px 10px -1px rgba(0, 0, 0, 1), 0 1px 1px 0 rgba(0, 0, 0, 1),
+    0 6px 10px 0 rgba(0, 0, 0, 1);
 }
-
-
-
-
-
 
 /* CSS FOR LEFT CARD SUBMIT BUTTON */
 .button-55 {
-
   align-self: center;
-  background-color: #E4DCEB;
+  background-color: #e4dceb;
   background-image: none;
   background-position: 0 90%;
   background-repeat: repeat no-repeat;
@@ -87,7 +74,7 @@ mat-divider:not([class*=mat-elevation-z]) {
   border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
   border-style: solid;
   border-width: 2px;
-  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
   box-sizing: border-box;
   color: #41403e;
   cursor: pointer;
@@ -96,7 +83,7 @@ mat-divider:not([class*=mat-elevation-z]) {
   font-size: 1rem;
   line-height: 23px;
   outline: none;
-  padding: .75rem;
+  padding: 0.75rem;
   text-decoration: none;
   transition: all 235ms ease-in-out;
   border-bottom-left-radius: 15px 255px;
@@ -106,22 +93,18 @@ mat-divider:not([class*=mat-elevation-z]) {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-   box-shadow: 0 1px 1px -1px rgba(0,0,0,1), 
-                0 1px 1px 0 rgba(0,0,0,1), 
-                0 1px 10px 0 rgba(0,0,0,1);
-
+  box-shadow: 0 1px 1px -1px rgba(0, 0, 0, 1), 0 1px 1px 0 rgba(0, 0, 0, 1),
+    0 1px 10px 0 rgba(0, 0, 0, 1);
 }
 
 .button-55:hover {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
   transform: translate3d(0, 2px, 0);
 }
 
 .button-55:focus {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
 }
-
-
 
 /* CSS FOR RIGHT CARD DATA DISPLAY */
 .button-54 {
@@ -134,12 +117,12 @@ mat-divider:not([class*=mat-elevation-z]) {
   cursor: pointer;
   border: 3px solid;
   padding: 0.25em 0.5em;
-  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
+    5px 5px 0px 0px;
   position: relative;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-
 }
 
 .button-54:active {
@@ -158,15 +141,20 @@ mat-divider:not([class*=mat-elevation-z]) {
 .button-29 {
   align-items: center;
   appearance: none;
-  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    #5adaff 0,
+    #5468ff 100%
+  );
   border: 0;
   border-radius: 6px;
-  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
   display: inline-flex;
-  font-family: "JetBrains Mono",monospace;
+  font-family: "JetBrains Mono", monospace;
   height: 48px;
   justify-content: center;
   line-height: 1;
@@ -177,21 +165,23 @@ mat-divider:not([class*=mat-elevation-z]) {
   position: relative;
   text-align: left;
   text-decoration: none;
-  transition: box-shadow .15s,transform .15s;
+  transition: box-shadow 0.15s, transform 0.15s;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
-  will-change: box-shadow,transform;
+  will-change: box-shadow, transform;
   font-size: 18px;
 }
 
 .button-29:focus {
-  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
 }
 
 .button-29:hover {
-  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
   transform: translateY(-2px);
 }
 
