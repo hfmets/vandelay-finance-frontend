@@ -77,4 +77,8 @@ export class EtfsComponent implements OnInit {
   openDialog(etf: ETF) {
     this.dialog.open(BuyEtfDialogComponent, { data: etf });
   }
+
+  applyFilter(filterValue: string) {
+    this.etf.filter = filterValue.trim().toLowerCase();
+  }
 }
