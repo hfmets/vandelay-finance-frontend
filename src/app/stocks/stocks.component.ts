@@ -25,7 +25,6 @@ export class StocksComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort)
   sort!: MatSort;
 
-
   displayedColumns = [
     'symbol',
     'name',
@@ -36,7 +35,7 @@ export class StocksComponent implements OnInit, AfterViewInit {
     'dayHigh',
     'open',
     'previousClose',
-    'buy'
+    'buy',
   ];
 
   constructor(
@@ -54,7 +53,6 @@ export class StocksComponent implements OnInit, AfterViewInit {
         });
         resArr = resArr.slice(0, -2);
         let stocks: Stock[] = resArr.map((item) => {
-
           return {
             symbol: item.symbol,
             name: item.name,
@@ -90,6 +88,10 @@ export class StocksComponent implements OnInit, AfterViewInit {
       },
     });
     return (this.apiService.SET_TICKER = someTicker);
+  }
+
+  applyFilter(filterValue: string) {
+    this.stocks.filter = filterValue.trim().toLowerCase();
   }
 
   ngAfterViewInit() {}

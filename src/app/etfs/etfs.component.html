@@ -1,6 +1,9 @@
 <div class="container mt-4">
   <app-wallet *ngIf="loggedIn"></app-wallet>
   <br>
+  <mat-form-field>
+    <input (keyup)="applyFilter($any($event.target).value)" matInput placeholder="Search" />
+  </mat-form-field>
   <table mat-table [dataSource]="etf" matSort class="mat-elevation-z8">
     <!-- <caption style="text-align:right">My savings</caption> -->
     <!-- Position Column -->

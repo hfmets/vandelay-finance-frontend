@@ -2,6 +2,9 @@
   <h1 class="mat-display-3">Stocks</h1>
   <app-wallet *ngIf="loggedIn"></app-wallet>
   <br />
+  <mat-form-field>
+    <input (keyup)="applyFilter($any($event.target).value)" matInput placeholder="Search" />
+  </mat-form-field>
   <table
     #stockTable
     mat-table
