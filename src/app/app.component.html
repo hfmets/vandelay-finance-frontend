@@ -4,7 +4,7 @@
       <mat-icon>menu</mat-icon>
     </button>
     <h1>Vandelay Finance</h1>
-    <app-horizontal></app-horizontal>
+    <app-horizontal *ngIf="!mobileQuery.matches"></app-horizontal>
   </mat-toolbar>
 
   <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">

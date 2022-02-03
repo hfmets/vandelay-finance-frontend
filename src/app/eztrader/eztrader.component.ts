@@ -38,6 +38,7 @@ import {
   ],
 })
 export class EztraderComponent implements OnInit {
+  cols = 2;
   color: ThemePalette = 'primary';
   mode: ProgressSpinnerMode = 'determinate';
   value = 10;
@@ -56,9 +57,38 @@ export class EztraderComponent implements OnInit {
 
   constructor(
     private auth: AuthService,
-    private breakpointObserver: BreakpointObserver
+    private responsive: BreakpointObserver
   ) {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.responsive
+      .observe([
+        Breakpoints.TabletPortrait,
+        Breakpoints.TabletLandscape,
+        Breakpoints.HandsetPortrait,
+        Breakpoints.HandsetLandscape,
+        Breakpoints.WebLandscape,
+        Breakpoints.WebPortrait,
+      ])
+      .subscribe((result) => {
+        const breakpoints = result.breakpoints;
+
+        if (breakpoints[Breakpoints.TabletPortrait]) {
+          this.cols = 1;
+        } else if (breakpoints[Breakpoints.HandsetPortrait]) {
+          this.cols = 1;
+        } else if (breakpoints[Breakpoints.HandsetLandscape]) {
+          this.cols = 1;
+        } else if (breakpoints[Breakpoints.TabletLandscape]) {
+          this.cols = 2;
+        } else if (breakpoints[Breakpoints.WebPortrait]) {
+          this.cols = 2;
+        } else if (breakpoints[Breakpoints.WebLandscape]) {
+          this.cols = 2;
+        } else {
+          this.cols = 2;
+        }
+      });
+  }
   onEZFormSubmit() {
     if (this.isEnlarge == false) {
       this.isEnlarge = true;
@@ -108,28 +138,28 @@ export class EztraderComponent implements OnInit {
     //this.ticker = this.ticker.toUpperCase()
     this.tickerResult = this.ticker.toUpperCase();
   }
-  isHandset$: Observable<boolean> = this.breakpointObserver
-    .observe(Breakpoints.Handset)
-    .pipe(
-      map((result) => result.matches),
-      shareReplay()
-    );
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 4 },
-        ];
-      }
+  // isHandset$: Observable<boolean> = this.breakpointObserver
+  //   .observe(Breakpoints.Handset)
+  //   .pipe(
+  //     map((result) => result.matches),
+  //     shareReplay()
+  //   );
+  // cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+  //   map(({ matches }) => {
+  //     if (matches) {
+  //       return [
+  //         { title: 'Card 1', cols: 1, rows: 1 },
+  //         { title: 'Card 2', cols: 1, rows: 1 },
+  //         { title: 'Card 3', cols: 1, rows: 1 },
+  //         { title: 'Card 4', cols: 1, rows: 4 },
+  //       ];
+  //     }
 
-      return [
-        { title: 'STOCKS', cols: 1, rows: 1 },
-        { title: 'NEWS', cols: 1, rows: 5 },
-        { title: 'Bill Reminder', cols: 1, rows: 3 },
-      ];
-    })
-  );
+  //     return [
+  //       { title: 'STOCKS', cols: 1, rows: 1 },
+  //       { title: 'NEWS', cols: 1, rows: 5 },
+  //       { title: 'Bill Reminder', cols: 1, rows: 3 },
+  //     ];
+  //   })
+  // );
 }

@@ -8,5 +8,5 @@
   </div>
 </div>
 <div mat-dialog-actions>
-  <button mat-raised-button (click)="submitForm()">Submit</button>
+  <button mat-raised-button [disabled]="addFundsForm.invalid" (click)="submitForm()">Submit</button>
 </div>

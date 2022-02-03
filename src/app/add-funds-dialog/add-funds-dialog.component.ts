@@ -1,7 +1,7 @@
 import { WalletUpdateService } from './../services/wallet-update.service';
 import { MoneyService } from './../services/money.service';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -11,7 +11,10 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class AddFundsDialogComponent implements OnInit {
   addFundsForm = new FormGroup({
-    funds: new FormControl(0),
+    funds: new FormControl({ value: 0 }, [
+      Validators.required,
+      Validators.min(0.01),
+    ]),
   });
 
   constructor(

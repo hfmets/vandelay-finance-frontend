@@ -1,7 +1,7 @@
 <div class="grid-container">
- 
 
-  <mat-grid-list cols="2" rowHeight="100px">
+
+  <mat-grid-list [cols]='cols' rowHeight="100px">
     <mat-grid-tile [colspan]="1" [rowspan]="6">
       <mat-card class="dashboard-card">
         <mat-card-header>
@@ -10,15 +10,15 @@
         <mat-card-content class="dashboard-card-content">
 
           <mat-form-field class="example-full-width" appearance="legacy">
-    <mat-label>TICKER: {{ticker}}</mat-label>
-    <input matInput placeholder="Ex. TSLA" value="Sushi" [(ngModel)]="ticker">
-  </mat-form-field><br><br>
+            <mat-label>TICKER: {{ticker}}</mat-label>
+            <input matInput placeholder="Ex. TSLA" value="Sushi" [(ngModel)]="ticker">
+          </mat-form-field><br><br>
 
 
- 
-<br><br>
 
-<button class="button-29" role="button"(click)="onEZFormSubmit()">EZTRADE</button>
+          <br><br>
+
+          <button class="button-29" role="button" (click)="onEZFormSubmit()">EZTRADE</button>
 
 
         </mat-card-content>
@@ -31,23 +31,20 @@
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            Analysis 
-            
+            Analysis
+
           </mat-card-title>
         </mat-card-header>
-        <mat-card-content class="dashboard-card-content"> 
-<br><br><br>
-<br><mat-progress-spinner
-        class="resultSpinner"
-        [color]="color"
-        [mode]="mode"
-        [value]="value">
-    </mat-progress-spinner><br>
-<br>
-<br><br>
+        <mat-card-content class="dashboard-card-content">
+          <br><br><br>
+          <br>
+          <mat-progress-spinner class="resultSpinner" [color]="color" [mode]="mode" [value]="value">
+          </mat-progress-spinner><br>
+          <br>
+          <br><br>
 
-    <button class="button-29" role="button">{{tickerResult}}<br>{{strength}} {{action}}</button>
-<br><br><br> 
+          <button class="button-29" role="button">{{tickerResult}}<br>{{strength}} {{action}}</button>
+          <br><br><br>
 
 
 
