@@ -11,9 +11,9 @@
     />
   </mat-form-field>
 </div>
-<div *ngIf="amount < 1000">There is a $1000 minimum</div>
-<div *ngIf="amount >= 1000">
-  <button class="button" mat-raised-button color="primary" (click)="buyIra()">
-    Buy
-  </button>
+<div class="container3">
+  <div *ngIf="amount < 1000">There is a $1000 minimum</div>
+  <div *ngIf="amount >= 1000">
+    <button mat-raised-button color="primary" (click)="buyIra()">Buy</button>
+  </div>
 </div>

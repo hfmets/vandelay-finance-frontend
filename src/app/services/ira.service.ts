@@ -9,10 +9,10 @@ export class IraService {
   readonly iraURL;
   constructor(private http: HttpClient) {
     this.iraURL =
-      'https://mysterious-dawn-78553.herokuapp.com/https://ira-funds.herokuapp.com/iras/';
+      'https://mysterious-dawn-78553.herokuapp.com/https://iras-db.herokuapp.com/iras';
   }
 
-  getIra(id: number): Observable<any> {
+  getIra(id: string): Observable<any> {
     return this.http.get(`${this.iraURL}/${id}`);
   }
 

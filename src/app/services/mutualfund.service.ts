@@ -13,7 +13,7 @@ export class MutualfundService {
     this.fundURL =
       'https://mysterious-dawn-78553.herokuapp.com/https://financialmodelingprep.com/api/v3/quote';
     this.URL =
-      'https://mysterious-dawn-78553.herokuapp.com/https://mutualfunds.herokuapp.com/currentMutualFunds/redis';
+      'https://mysterious-dawn-78553.herokuapp.com/https://mutual-funds-db.herokuapp.com/currentMutualFunds/redis';
     this.historicalData = `https://mysterious-dawn-78553.herokuapp.com/https://financialmodelingprep.com/api/v3/historical-chart/4hour`;
   }
 

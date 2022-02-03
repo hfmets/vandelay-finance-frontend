@@ -1,8 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { IraService } from '../services/ira.service';
 import { MoneyService } from '../services/money.service';
-import { WalletUpdateService } from '../services/wallet-update.service';
 
 @Component({
   selector: 'app-buy-ira',
@@ -13,8 +12,6 @@ export class BuyIraComponent implements OnInit {
   constructor(
     private iraService: IraService,
     private moneyService: MoneyService,
-    private walletUpdate: WalletUpdateService,
-    private dialogRef: MatDialogRef<BuyIraComponent>,
     @Inject(MAT_DIALOG_DATA) private data: string
   ) {}
 
@@ -25,7 +22,10 @@ export class BuyIraComponent implements OnInit {
   amount: number = 0;
   iraName: string = '';
   iraType: string = '';
-  userId: number = 7;
+  //userId is a string
+  userId: string = '';
+  //userId: number = 7;
+  userBalance: number = 11000;
 
   ngOnInit(): void {
     // data passed from FundsModalComponent
@@ -37,38 +37,30 @@ export class BuyIraComponent implements OnInit {
   }
 
   buyIra() {
-    //create ira
-    this.newIra = {
-      name: this.iraName,
-      balance: this.amount,
-      type: this.iraType,
-      userId: this.userId,
-      mutualFundId: this.symbol,
-      etfId: null,
-      stockId: null,
-    };
-
-    // const reqBody = {
-    //   ticker: this.symbol,
-    //   value: this.amount,
-    //   sharesTransacted: this.amount / Number(this.priceStr),
-    //   holdingKind: 'ira',
-    // };
-
-    // this.moneyService.purchaseStock(reqBody).subscribe({
-    //   next: (res) => {
-    //     console.log(res);
-    //   },
-    //   error: (err) => {
-    //     console.log(err);
-    //     this.error = err.error.message;
-    //   },
-    //   complete: () => {
-    //     this.walletUpdate.changeWalletUpdate(true);
-    //     this.dialogRef.close();
-    //   },
+    // get users id and account balance
+    // this.moneyService.getAccountBalance().subscribe((res) => {
+    //   this.userBalance = res.accountBalance;
+    //   //this.userId = res.userId;
     // });
-    this.iraService.addIra(this.newIra).subscribe();
-    //window.location.reload();
+    this.userId = 'p392-2rej3-243e-3eii4';
+
+    // check user has enough money
+    if (this.userBalance > this.amount) {
+      //create ira
+      this.newIra = {
+        name: this.iraName,
+        balance: this.amount,
+        type: this.iraType,
+        userId: this.userId,
+        mutualFundId: this.symbol,
+        etfId: null,
+        stockId: null,
+      };
+      this.iraService.addIra(this.newIra).subscribe();
+      window.location.reload();
+    } else {
+      // tell user to add more money
+      console.log('add more money');
+    }
   }
 }

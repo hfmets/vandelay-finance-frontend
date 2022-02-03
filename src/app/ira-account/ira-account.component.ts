@@ -6,6 +6,8 @@ import { IraService } from '../services/ira.service';
 import { FundsModalComponent } from '../funds-modal/funds-modal.component';
 import { AddIraComponent } from '../add-ira/add-ira.component';
 import { MutualfundService } from '../services/mutualfund.service';
+import { MoneyService } from '../services/money.service';
+import { CookieService } from 'ngx-cookie-service';
 
 // groupBy name and type
 function groupBy(
@@ -37,18 +39,28 @@ export class IraAccountComponent implements OnInit, OnDestroy {
   tempIraTypeList: string[] = [];
   dataSource: any[] = [];
   new_data: any[] = [];
-  userId = 7;
+  userId: string = '';
+  //userId = 7;
   displayedColumns: string[] = ['name', 'balance'];
+  loggedIn!: boolean;
 
   private irasSub: Subscription = new Subscription();
 
   constructor(
     private fundService: MutualfundService,
     private iraService: IraService,
-    private dialog: MatDialog
+    private moneyService: MoneyService,
+    private dialog: MatDialog,
+    private cookieService: CookieService
   ) {}
 
   ngOnInit(): void {
+    // get user id
+    // this.moneyService.getAccountBalance().subscribe((res) => {
+    //   //this.userId = res.userId;
+    // });
+    this.userId = 'p392-2rej3-243e-3eii4';
+
     this.iraService.getIra(this.userId).subscribe({
       next: (res) => {
         //console.log('response', res);
@@ -110,6 +122,7 @@ export class IraAccountComponent implements OnInit, OnDestroy {
         //console.log('dataSource1', this.dataSource);
       },
     });
+    this.loggedIn = this.cookieService.check('connect.sid');
   }
 
   getFundName(symbol: string) {

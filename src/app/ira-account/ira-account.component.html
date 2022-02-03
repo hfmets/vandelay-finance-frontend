@@ -1,3 +1,4 @@
+<app-wallet *ngIf="loggedIn"></app-wallet>
 <div *ngIf="iras.length > 0">
   <mat-accordion multi="true">
     <mat-expansion-panel *ngFor="let fund of dataSource">

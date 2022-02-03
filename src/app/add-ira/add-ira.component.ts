@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IraService } from '../services/ira.service';
 import { Ira } from '../ira/ira.model';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { MoneyService } from '../services/money.service';
 
 interface Type {
   value: string;
@@ -17,7 +18,8 @@ export class AddIraComponent implements OnInit {
   newIra: any = {};
   iras: Ira[] = [];
   id: number = 0;
-  userId: number = 7;
+  userId: string = '';
+  //userId: number = 7;
   name: string = '';
   balance: number = 0;
   type: string = '';
@@ -33,6 +35,7 @@ export class AddIraComponent implements OnInit {
 
   constructor(
     private fundService: IraService,
+    private moneyService: MoneyService,
     private formBuilder: FormBuilder
   ) {
     this.form = formBuilder.group({
@@ -45,7 +48,13 @@ export class AddIraComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // get user id
+    // this.moneyService.getAccountBalance().subscribe((res) => {
+    //   //this.userId = res.userId;
+    // });
+    this.userId = 'p392-2rej3-243e-3eii4';
+  }
 
   add(): void {
     //Add new IRA Fund
