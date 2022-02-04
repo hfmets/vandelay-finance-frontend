@@ -1,6 +1,21 @@
-.calculator_main {
+mat-card {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3f51b5;
+  color: white;
+  cursor: pointer;
+}
+
+mat-card:hover {
+  background-color: white;
+  color: #3f51b5;
+}
+
+/* .calculator_main {
   max-width: 60vw;
-  /* max-height: 60vw; */
+
   margin: 10% auto 0 auto;
   box-shadow: 0px 0px 43px 17px rgba(6, 3, 49, 0.24);
 }
@@ -50,4 +65,4 @@
   background-color: white;
   color: #3f51b5;
   transition: 0.5s ease-in-out;
-}
+} */

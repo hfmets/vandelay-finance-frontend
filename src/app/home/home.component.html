@@ -1,12 +1,46 @@
-<div>
+<div class="container mt-4">
+  <div class="row gx-2 gy-2">
+    <div class="col-lg-12">
+      <mat-card class="text-center mat-h1 mat-elevation-z8" routerLink="/">Vandelay Finance
+      </mat-card>
+    </div>
+    <div class="col-lg-6">
+      <mat-card class="text-center mat-h1 mat-elevation-z8" routerLink="/">Home</mat-card>
+    </div>
+    <div class="col-lg-6">
+      <mat-card class="text-center mat-h1 mat-elevation-z8" routerLink="/news">News</mat-card>
+    </div>
+    <div class="col-lg-6">
+      <mat-card class="text-center mat-h1 mat-elevation-z8" *ngIf="!signedIn" routerLink="/sign-up">Sign Up</mat-card>
+    </div>
+    <div class="col-lg-6">
+      <mat-card class="text-center mat-h1 mat-elevation-z8" *ngIf="!signedIn" routerLink="/login">Login</mat-card>
+    </div>
+    <div class="col-lg-6">
+      <mat-card class="text-center mat-h1 mat-elevation-z8" routerLink="/stocks">Stocks</mat-card>
+    </div>
+    <div class="col-lg-6">
+      <mat-card class="text-center mat-h1 mat-elevation-z8" routerLink="/etfFunds">ETFs</mat-card>
+    </div>
+    <div class="col-lg-6">
+      <mat-card class="text-center mat-h1 mat-elevation-z8" routerLink="/mutualFunds">Mutual Funds</mat-card>
+    </div>
+    <div class="col-lg-6">
+      <mat-card class="text-center mat-h1 mat-elevation-z8" routerLink="/ira">IRA</mat-card>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div>
   <section>
     <div class="calculator_main">
       <div id="screen_display">Vandelay Finance</div>
       <div class="button_collection">
-        <!-- <div class="buttons">፨</div>
+        <div class="buttons">፨</div>
           <div class="buttons">፨</div>
           <div class="buttons">፨</div>
-          <div class="buttons">፨</div> -->
+          <div class="buttons">፨</div>
         <div class="buttons">፨</div>
         <div class="buttons">፨</div>
         <div class="buttons">፨</div>
@@ -26,4 +60,4 @@
       </div>
     </div>
   </section>
-</div>
+</div> -->

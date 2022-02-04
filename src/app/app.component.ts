@@ -34,7 +34,7 @@ export class AppComponent {
   }
 
   logout() {
-    this.cookieService.delete('connect.sid');
+    this.cookieService.delete('connect.sid', '/', '.vandelay-user.fun');
     this.auth.emitLoginChange(false);
     this.router.navigateByUrl('/home');
   }
