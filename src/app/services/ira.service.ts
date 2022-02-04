@@ -12,8 +12,8 @@ export class IraService {
       'https://mysterious-dawn-78553.herokuapp.com/https://iras-db.herokuapp.com/iras';
   }
 
-  getIra(id: string): Observable<any> {
-    return this.http.get(`${this.iraURL}/${id}`);
+  getIra(id: any): Observable<any> {
+    return this.http.get(`${this.iraURL}`, id);
   }
 
   addIra(ira: any): Observable<any> {
