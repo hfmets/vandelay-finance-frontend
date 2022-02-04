@@ -22,6 +22,9 @@ import { MatTableDataSource } from '@angular/material/table';
 export class MyAccountComponent implements OnInit, AfterViewInit {
   holdings!: MatTableDataSource<Holding>;
   transactions!: MatTableDataSource<Transaction>;
+
+  holdingsData!: Holding[];
+  transactionsData!: Transaction[];
   @ViewChildren(MatPaginator) paginator = new QueryList<MatPaginator>();
 
   displayedColumnsHoldings = ['ticker', 'kind', 'sharesOwned', 'actions'];
@@ -51,7 +54,7 @@ export class MyAccountComponent implements OnInit, AfterViewInit {
 
   setUserInfo() {
     this.moneyService.getAccountInfo().subscribe((res) => {
-      let holdings: Holding[] = res.holdings.map((item: any) => {
+      this.holdingsData = res.holdings.map((item: any) => {
         return {
           ticker: item.ticker,
           kind: item.kind,
@@ -59,7 +62,7 @@ export class MyAccountComponent implements OnInit, AfterViewInit {
         };
       });
 
-      let transactions: Transaction[] = res.transactions.map((item: any) => {
+      this.transactionsData = res.transactions.map((item: any) => {
         return {
           kind: item.kind,
           ticker: item.ticker,
@@ -69,11 +72,17 @@ export class MyAccountComponent implements OnInit, AfterViewInit {
         };
       });
 
-      this.holdings = new MatTableDataSource<Holding>(holdings);
+      this.holdings = new MatTableDataSource<Holding>(this.holdingsData);
       this.holdings.paginator = this.paginator.toArray()[0];
-      this.transactions = new MatTableDataSource<Transaction>(transactions);
+      this.transactions = new MatTableDataSource<Transaction>(
+        this.transactionsData
+      );
       this.transactions.paginator = this.paginator.toArray()[1];
     });
+  }
+
+  getHoldingsValuation() {
+    console.log(this.holdingsData);
   }
 
   openDialog(holding: Holding) {
