@@ -32,6 +32,7 @@ function groupBy(
   styleUrls: ['./ira-account.component.css'],
 })
 export class IraAccountComponent implements OnInit, OnDestroy {
+  req: any = {};
   amount: number = 0;
   symbol: string = '';
   name: string = '';
@@ -60,10 +61,14 @@ export class IraAccountComponent implements OnInit, OnDestroy {
       this.userId = res.userId;
     });
     //this.userId = 'p392-2rej3-243e-3eii4';
+    this.req = {
+      userId: this.userId,
+    };
+    console.log(this.req);
 
-    this.iraService.getIra(this.userId).subscribe({
+    this.iraService.getIra(this.req).subscribe({
       next: (res) => {
-        //console.log('response', res);
+        console.log('response', res);
         let resArr = Object.keys(res).map((key) => {
           //console.log('res[key]', res[key]);
           return res[key];
@@ -82,7 +87,7 @@ export class IraAccountComponent implements OnInit, OnDestroy {
           };
         });
 
-        //console.log('Fund Payload ', payload);
+        console.log('Fund Payload ', funds);
         this.iras = funds;
 
         //group each ira by Ira type and Ira name

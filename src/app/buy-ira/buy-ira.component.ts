@@ -28,7 +28,7 @@ export class BuyIraComponent implements OnInit {
   //userId is a string
   userId: string = '';
   //userId: number = 7;
-  userBalance: number = 0;
+  userBalance: number = 1500;
   enoughMoney: boolean = false;
 
   ngOnInit(): void {
