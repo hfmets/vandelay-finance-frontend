@@ -22,7 +22,7 @@ export class BuyStocksDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      last: new FormControl({ value: this.data.last, disabled: true }),
+      last: new FormControl({ value: this.data.price, disabled: true }),
       shares: new FormControl({ value: 0 }),
       total: new FormControl({ value: 0, disabled: true }),
     });
