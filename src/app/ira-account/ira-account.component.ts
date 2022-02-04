@@ -32,7 +32,6 @@ function groupBy(
   styleUrls: ['./ira-account.component.css'],
 })
 export class IraAccountComponent implements OnInit, OnDestroy {
-  req: any = {};
   amount: number = 0;
   symbol: string = '';
   name: string = '';
@@ -57,16 +56,12 @@ export class IraAccountComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // get user id
-    // this.moneyService.getAccountBalance().subscribe((res) => {
-    //   this.userId = res.userId;
-    // });
-    this.userId = 'e1f8ea09-52ff-40ca-a774-86955a7ba3a8';
-    this.req = {
-      userId: this.userId,
-    };
-    console.log('req', this.req);
+    this.moneyService.getAccountBalance().subscribe((res) => {
+      this.userId = res.userId;
+    });
+    //this.userId = 'e1f8ea09-52ff-40ca-a774-86955a7ba3a8';
 
-    this.iraService.getIra(this.req).subscribe({
+    this.iraService.getIra(this.userId).subscribe({
       next: (res) => {
         console.log('response', res);
         let resArr = Object.keys(res).map((key) => {
