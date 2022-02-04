@@ -50,10 +50,10 @@ export class AddIraComponent implements OnInit {
 
   ngOnInit(): void {
     // get user id
-    // this.moneyService.getAccountBalance().subscribe((res) => {
-    //   this.userId = res.userId;
-    // });
-    this.userId = 'p392-2rej3-243e-3eii4';
+    this.moneyService.getAccountBalance().subscribe((res) => {
+      this.userId = res.userId;
+    });
+    //this.userId = 'p392-2rej3-243e-3eii4';
   }
 
   add(): void {

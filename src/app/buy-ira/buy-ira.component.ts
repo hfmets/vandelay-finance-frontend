@@ -42,11 +42,11 @@ export class BuyIraComponent implements OnInit {
 
   buyIra() {
     // get users id and account balance
-    // this.moneyService.getAccountBalance().subscribe((res) => {
-    //   this.userBalance = res.accountBalance;
-    //   this.userId = res.userId;
-    // });
-    this.userId = 'p392-2rej3-243e-3eii4';
+    this.moneyService.getAccountBalance().subscribe((res) => {
+      this.userBalance = res.accountBalance;
+      this.userId = res.userId;
+    });
+    //this.userId = 'p392-2rej3-243e-3eii4';
 
     // check user has enough money
     if (this.userBalance > this.amount) {
