@@ -53,7 +53,7 @@ export class AddIraComponent implements OnInit {
     this.moneyService.getAccountBalance().subscribe((res) => {
       this.userId = res.userId;
     });
-    //this.userId = 'p392-2rej3-243e-3eii4';
+    //this.userId = 'e1f8ea09-52ff-40ca-a774-86955a7ba3a8';
   }
 
   add(): void {
@@ -67,7 +67,7 @@ export class AddIraComponent implements OnInit {
       etfId: null,
       stockId: null,
     };
-
+    console.log('newIra', this.newIra);
     this.fundService.addIra(this.newIra).subscribe();
     window.location.reload();
   }
