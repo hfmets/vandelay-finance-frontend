@@ -10,3 +10,9 @@ button {
 .mat-cell {
   padding: 8px 8px 8px 0;
 }
+
+.main {
+  margin-top: 1rem;
+  width: 80%;
+  margin: 1rem auto;
+}

@@ -23,11 +23,9 @@ const routes: Routes = [
   { path: 'etfFunds', component: EtfsComponent },
   { path: 'ira', component: IraComponent },
   { path: 'news', component: NewsfeedComponent },
-    { path: 'eztrader', component: EztraderComponent },
-    { path: 'eztraderdash', component: EztraderdashboardComponent },
-        { path: 'delor', component: DelorComponent },
-
-
+  { path: 'eztrader', component: EztraderComponent },
+  { path: 'eztraderdash', component: EztraderdashboardComponent },
+  { path: 'delor', component: DelorComponent },
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];

@@ -34,7 +34,7 @@ export class BuyStocksDialogComponent implements OnInit {
 
   submitForm() {
     const reqBody = {
-      ticker: this.data.ticker,
+      ticker: this.data.symbol,
       value: this.total?.value,
       sharesTransacted: this.shares?.value,
       holdingKind: 'stock',
