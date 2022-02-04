@@ -13,6 +13,7 @@ import {
 import { Holding } from '../models/holding';
 import { Transaction } from '../models/transaction';
 import { MatTableDataSource } from '@angular/material/table';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-my-account',
@@ -22,7 +23,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class MyAccountComponent implements OnInit, AfterViewInit {
   holdings!: MatTableDataSource<Holding>;
   transactions!: MatTableDataSource<Transaction>;
-
+  valuation!: number;
   holdingsData!: Holding[];
   transactionsData!: Transaction[];
   @ViewChildren(MatPaginator) paginator = new QueryList<MatPaginator>();
@@ -83,6 +84,25 @@ export class MyAccountComponent implements OnInit, AfterViewInit {
 
   getHoldingsValuation() {
     console.log(this.holdingsData);
+    let tickers = '';
+    let value = 0;
+    this.holdingsData.forEach((holding) => {
+      tickers += `${holding.ticker},`;
+    });
+    tickers = tickers.slice(0, -1);
+
+    this.moneyService.getStock(tickers).subscribe((res) => {
+      res.forEach((element: any) => {
+        let match = this.holdingsData.find((holding) => {
+          return holding.ticker === element.symbol;
+        });
+
+        if (match) {
+          value += element.price * match.sharesOwned;
+        }
+      });
+      this.valuation = value;
+    });
   }
 
   openDialog(holding: Holding) {

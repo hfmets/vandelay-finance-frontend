@@ -8,8 +8,7 @@ import { Stock } from '../models/stock';
   providedIn: 'root',
 })
 export class MoneyService {
-  stockUrl: string =
-    'https://api.marketstack.com/v1/eod/latest?access_key=54b1c1a5b9ea427c6d17888d33b619aa&symbols=';
+  stockUrl: string = 'https://financialmodelingprep.com/api/v3/quote-short/';
 
   stocksUrl: string =
     'https://mysterious-dawn-78553.herokuapp.com/https://obscure-oasis-94568.herokuapp.com/stocks/stocks';
@@ -29,7 +28,9 @@ export class MoneyService {
   constructor(private http: HttpClient) {}
 
   getStock(ticker: string): Observable<any> {
-    return this.http.get<any>(`${this.stockUrl}${ticker}&limit=1`);
+    return this.http.get<any>(
+      `${this.stockUrl}${ticker}?apikey=dccf9329500f00a6e72e4bc4bc1a681b`
+    );
   }
 
   getStocks(): Observable<any> {
