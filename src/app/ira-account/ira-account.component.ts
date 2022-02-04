@@ -57,14 +57,14 @@ export class IraAccountComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // get user id
-    this.moneyService.getAccountBalance().subscribe((res) => {
-      this.userId = res.userId;
-    });
-    //this.userId = 'p392-2rej3-243e-3eii4';
+    // this.moneyService.getAccountBalance().subscribe((res) => {
+    //   this.userId = res.userId;
+    // });
+    this.userId = 'e1f8ea09-52ff-40ca-a774-86955a7ba3a8';
     this.req = {
       userId: this.userId,
     };
-    console.log(this.req);
+    console.log('req', this.req);
 
     this.iraService.getIra(this.req).subscribe({
       next: (res) => {
