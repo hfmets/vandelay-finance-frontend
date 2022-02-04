@@ -62,6 +62,7 @@ export class BuyIraComponent implements OnInit {
         stockId: null,
       };
       this.iraService.addIra(this.newIra).subscribe();
+      this.userBalance = this.userBalance - this.amount;
       window.location.reload();
     } else {
       this.dialog.open(AddMoneyComponent);
