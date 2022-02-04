@@ -11,3 +11,7 @@ table {
   width: 80%;
   margin: 1rem auto;
 }
+
+.table-container {
+  overflow: auto;
+}

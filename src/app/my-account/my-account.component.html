@@ -1,6 +1,13 @@
 <div class="container mt-4">
   <app-wallet></app-wallet>
   <br>
+  <button mat-raised-button color="primary" (click)="getHoldingsValuation()">Get holdings valuation</button>
+  <br>
+  <mat-chip-list *ngIf="valuation" class="mt-4 chip-list">
+    <mat-chip>Your holdings are worth: {{valuation | currency}}</mat-chip>
+  </mat-chip-list>
+  <br>
+  <br>
   <h1 class="headline">Your Holdings</h1>
   <table #holdingTable mat-table [dataSource]='holdings' class="mat-elevation-z8">
     <ng-container matColumnDef="ticker">
