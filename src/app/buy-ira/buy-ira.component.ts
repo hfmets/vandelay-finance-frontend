@@ -46,7 +46,7 @@ export class BuyIraComponent implements OnInit {
       this.userBalance = res.accountBalance;
       this.userId = res.userId;
     });
-    //this.userId = 'p392-2rej3-243e-3eii4';
+    //this.userId = 'e1f8ea09-52ff-40ca-a774-86955a7ba3a8';
 
     // check user has enough money
     if (this.userBalance > this.amount) {
