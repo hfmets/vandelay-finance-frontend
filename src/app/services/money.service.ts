@@ -25,6 +25,8 @@ export class MoneyService {
 
   accountInfoUrl: string = 'api/transactions/accountInfo';
 
+  spendUrl: string = 'api/transactions/spend';
+
   constructor(private http: HttpClient) {}
 
   getStock(ticker: string): Observable<any> {
@@ -82,6 +84,18 @@ export class MoneyService {
   getAccountInfo(): Observable<any> {
     return this.http.get<any>(
       environment.prefixFinances + this.accountInfoUrl,
+      { withCredentials: true }
+    );
+  }
+
+  spend(fundsToBeSpent: number): Observable<any> {
+    let reqBody = {
+      fundsToBeSpent: fundsToBeSpent,
+    };
+
+    return this.http.post<any>(
+      environment.prefixFinances + this.spendUrl,
+      reqBody,
       { withCredentials: true }
     );
   }
