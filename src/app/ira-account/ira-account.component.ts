@@ -58,9 +58,13 @@ export class IraAccountComponent implements OnInit, OnDestroy {
     // get user id
     this.moneyService.getAccountBalance().subscribe((res) => {
       this.userId = res.userId;
+      this.getFunds();
     });
-    //this.userId = 'e1f8ea09-52ff-40ca-a774-86955a7ba3a8';
+    //this.userId = '99686cdb-acc1-4730-857c-e83c58d70a03';
+    this.loggedIn = this.cookieService.check('connect.sid');
+  }
 
+  getFunds() {
     this.iraService.getIra(this.userId).subscribe({
       next: (res) => {
         console.log('response', res);
@@ -122,7 +126,6 @@ export class IraAccountComponent implements OnInit, OnDestroy {
         //console.log('dataSource1', this.dataSource);
       },
     });
-    this.loggedIn = this.cookieService.check('connect.sid');
   }
 
   getFundName(symbol: string) {
