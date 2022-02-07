@@ -45,13 +45,17 @@ export class BuyIraComponent implements OnInit {
     this.moneyService.getAccountBalance().subscribe((res) => {
       this.userBalance = res.accountBalance;
       this.userId = res.userId;
+      this.addFundToIra();
     });
     //this.userId = 'e1f8ea09-52ff-40ca-a774-86955a7ba3a8';
+    //console.log('enough money', this.enoughMoney);
+  }
 
+  addFundToIra() {
     // check user has enough money
     if (this.userBalance > this.amount) {
       this.enoughMoney = true;
-      //create ira
+      //create ira with mutual fund symbol and amount
       this.newIra = {
         name: this.iraName,
         balance: this.amount,
@@ -67,6 +71,5 @@ export class BuyIraComponent implements OnInit {
     } else {
       this.dialog.open(AddMoneyComponent);
     }
-    console.log('enough money', this.enoughMoney);
   }
 }
