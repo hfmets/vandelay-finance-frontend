@@ -4,6 +4,7 @@ import { IraService } from '../services/ira.service';
 import { MoneyService } from '../services/money.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddMoneyComponent } from '../add-money/add-money.component';
+import { WalletUpdateService } from '../services/wallet-update.service';
 
 @Component({
   selector: 'app-buy-ira',
@@ -15,6 +16,7 @@ export class BuyIraComponent implements OnInit {
     private iraService: IraService,
     private moneyService: MoneyService,
     private dialog: MatDialog,
+    private wallet: WalletUpdateService,
     @Inject(MAT_DIALOG_DATA) private data: string
   ) {}
 
@@ -66,7 +68,8 @@ export class BuyIraComponent implements OnInit {
         stockId: null,
       };
       this.iraService.addIra(this.newIra).subscribe();
-      this.userBalance = this.userBalance - this.amount;
+      this.moneyService.spend(this.amount);
+      this.wallet.changeWalletUpdate(true);
       window.location.reload();
     } else {
       this.dialog.open(AddMoneyComponent);
