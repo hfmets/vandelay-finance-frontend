@@ -49,6 +49,7 @@ export class BuyIraComponent implements OnInit {
       this.userId = res.userId;
       this.addFundToIra();
     });
+
     //this.userId = 'e1f8ea09-52ff-40ca-a774-86955a7ba3a8';
     //console.log('enough money', this.enoughMoney);
   }
@@ -68,8 +69,9 @@ export class BuyIraComponent implements OnInit {
         stockId: null,
       };
       this.iraService.addIra(this.newIra).subscribe();
-      this.moneyService.spend(this.amount);
-      this.wallet.changeWalletUpdate(true);
+      this.moneyService.spend(this.amount).subscribe((res) => {
+        this.wallet.changeWalletUpdate(true);
+      });
       window.location.reload();
     } else {
       this.dialog.open(AddMoneyComponent);
