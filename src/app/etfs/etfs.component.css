@@ -1,6 +1,11 @@
 table {
   width: 100%;
 }
+button {
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+}
 
 .mat-cell {
   padding: 8px 8px 8px 0;

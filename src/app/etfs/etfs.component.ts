@@ -12,6 +12,7 @@ import { EtfService } from '../services/etf.service';
 import { ETF } from '../models/etf';
 import { MatSort } from '@angular/material/sort';
 import { CookieService } from 'ngx-cookie-service';
+import { VisualComponent } from '../visual/visual/visual.component';
 @Component({
   selector: 'app-etfs',
   templateUrl: './etfs.component.html',
@@ -51,9 +52,12 @@ export class EtfsComponent implements OnInit {
   ngOnInit(): void {
     this.etfService.getEtfs().subscribe((etfs) => {
       let responseArray = Object.keys(etfs).map((key) => {
-        return etfs[key];
+        // console.log('This is etf', etfs[key]);
+        return etfs[key].etf;
       });
+      responseArray = responseArray.slice(0, -2);
       let etfResponse: ETF[] = responseArray.map((eachEtfs) => {
+        // console.log("ETF RESPONSE",eachEtfs);
         return {
           symbol: eachEtfs.symbol,
           name: eachEtfs.name,
@@ -80,5 +84,15 @@ export class EtfsComponent implements OnInit {
 
   applyFilter(filterValue: string) {
     this.etf.filter = filterValue.trim().toLowerCase();
+  }
+  openModal(someTicker: string) {
+    this.dialog.open(VisualComponent, {
+      height: '700px',
+      width: '1200px',
+      data: {
+        symbol: someTicker,
+      },
+    });
+    return (this.apiService.SET_TICKER = someTicker);
   }
 }

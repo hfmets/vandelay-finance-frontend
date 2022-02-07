@@ -10,55 +10,59 @@
       <!-- <caption style="text-align:right">My savings</caption> -->
       <!-- Position Column -->
       <ng-container matColumnDef="symbol">
-        <th mat-header-cell *matHeaderCellDef> Symbol </th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol"> Symbol </th>
+        <!-- <td mat-cell *matCellDef="let element"> {{element.symbol}} </td> -->
+        <td mat-cell *matCellDef="let element">
+          <button (click)="openModal(element.symbol)">
+            {{ element.symbol }}
+          </button>
       </ng-container>
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name"> Name </th>
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
       </ng-container>
       <ng-container matColumnDef="price">
-        <th mat-header-cell *matHeaderCellDef> Price </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by price"> Price </th>
         <td mat-cell *matCellDef="let element"> {{element.price | currency}} </td>
       </ng-container>
       <ng-container matColumnDef="changesPercentage">
-        <th mat-header-cell *matHeaderCellDef> Chng Pct. </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by changesPercentage"> Chng Pct. </th>
         <td mat-cell *matCellDef="let element"> {{element.changesPercentage/100 | percent:'1.2' }} </td>
       </ng-container>
       <ng-container matColumnDef="change">
-        <th mat-header-cell *matHeaderCellDef> Change </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by change"> Change </th>
         <td mat-cell *matCellDef="let element"> {{element.change | number: '1.2-2'}} </td>
       </ng-container>
       <ng-container matColumnDef="dayLow">
-        <th mat-header-cell *matHeaderCellDef> Day Low </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by dayLow"> Day Low </th>
         <td mat-cell *matCellDef="let element"> {{element.dayLow | currency}} </td>
       </ng-container>
       <ng-container matColumnDef="dayHigh">
-        <th mat-header-cell *matHeaderCellDef> Day High </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by dayHigh"> Day High </th>
         <td mat-cell *matCellDef="let element"> {{element.dayHigh | currency}} </td>
       </ng-container>
       <ng-container matColumnDef="yearHigh">
-        <th mat-header-cell *matHeaderCellDef> Year High </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by yearHigh"> Year High </th>
         <td mat-cell *matCellDef="let element"> {{element.yearHigh | currency}} </td>
       </ng-container>
-      <ng-container matColumnDef="yearLow">
-        <th mat-header-cell *matHeaderCellDef> Year Low </th>
+      <ng-container matColumnDef="yearLow" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by yearLow"> Year Low </th>
         <td mat-cell *matCellDef="let element"> {{element.yearLow | currency}} </td>
       </ng-container>
       <ng-container matColumnDef="exchange">
-        <th mat-header-cell *matHeaderCellDef> Exchange </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by exchange"> Exchange </th>
         <td mat-cell *matCellDef="let element"> {{element.exchange}} </td>
       </ng-container>
       <ng-container matColumnDef="open">
-        <th mat-header-cell *matHeaderCellDef> Open </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by open"> Open </th>
         <td mat-cell *matCellDef="let element"> {{element.open | currency}} </td>
       </ng-container>
       <ng-container matColumnDef="previousClose">
-        <th mat-header-cell *matHeaderCellDef> Previous Close </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by previousClose"> Previous Close </th>
         <td mat-cell *matCellDef="let element"> {{element.previousClose | currency}} </td>
       </ng-container>
       <ng-container matColumnDef="timestamp">
-        <th mat-header-cell *matHeaderCellDef> Timestamp </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol"> Timestamp </th>
         <td mat-cell *matCellDef="let element"> {{element.timestamp}} </td>
       </ng-container>
 
@@ -73,7 +77,7 @@
 
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-row *matRowDef="let etf; columns: displayedColumns;"></tr>
     </table>
   </div>
   <mat-paginator [pageSizeOptions]="[10, 20, 100]" class="mat-elevation-z8" showFirstLastButtons
