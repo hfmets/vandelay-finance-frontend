@@ -6,7 +6,7 @@ import { catchError, throwError, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class EtfService {
-  public ETF_API_URL = `https://financialmodelingprep.com/api/v3/quotes/etf?apikey=4848bbe794ce7941fcdce23f0a5aab37`;
+  public ETF_API_URL = `https://mysterious-dawn-78553.herokuapp.com/https://obscure-oasis-94568.herokuapp.com/etfs/etf`;
   constructor(private httpClient: HttpClient) {}
   handleError(error: HttpErrorResponse) {
     let errorMessage = 'Unknown error';
