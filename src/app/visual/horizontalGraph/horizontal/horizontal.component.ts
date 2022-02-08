@@ -4,7 +4,8 @@ import { ApiService } from 'src/app/services/api.service';
 import { HorizontalService } from 'src/app/services/horizontal.service';
 import { HttpClient } from '@angular/common/http';
 import { Index } from 'src/app/models/index';
-
+import { interval, timer } from 'rxjs';
+import { switchMap, map } from 'rxjs/operators';
 declare var google: any;
 @Component({
   selector: 'app-horizontal',
@@ -29,6 +30,13 @@ export class HorizontalComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    const observable = timer(0, 1000 * 39);
+    observable.subscribe(() => {
+      this.banner();
+    });
+  }
+
+  banner() {
     this.horizontalService.getIndex().subscribe((indexs) => {
       let responseArray = Object.keys(indexs).map((keys) => {
         return indexs[keys];
@@ -61,5 +69,4 @@ export class HorizontalComponent implements OnInit {
       this.resArray = res;
     });
   }
-  
 }
