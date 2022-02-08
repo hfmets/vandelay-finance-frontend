@@ -1,22 +1,23 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { ApiService } from 'src/app/services/api.service';
 import { HorizontalService } from 'src/app/services/horizontal.service';
 import { HttpClient } from '@angular/common/http';
 import { Index } from 'src/app/models/index';
-import { interval, timer } from 'rxjs';
-import { switchMap, map } from 'rxjs/operators';
+import { interval, Subject, takeUntil, timer } from 'rxjs';
+
 declare var google: any;
 @Component({
   selector: 'app-horizontal',
   templateUrl: './horizontal.component.html',
   styleUrls: ['./horizontal.component.css'],
 })
-export class HorizontalComponent implements OnInit {
+export class HorizontalComponent implements OnInit, OnDestroy {
   dataSource: any;
   stock: any;
-  _low: any;
+  index$: any;
   resArray: any[] = [];
+  public unsubscribe$ = new Subject();
   displayedColumns = ['ticker', 'name', 'open', 'high', 'low', 'close', 'buy'];
   trend = ['trending_down', 'trending_flat', 'trending_up'];
   color = ['red', 'white', 'green'];
@@ -28,16 +29,18 @@ export class HorizontalComponent implements OnInit {
     private horizontalService: HorizontalService,
     private httpClient: HttpClient
   ) {}
-
+  
   ngOnInit(): void {
     const observable = timer(0, 1000 * 39);
     observable.subscribe(() => {
       this.banner();
     });
   }
-
+  
   banner() {
-    this.horizontalService.getIndex().subscribe((indexs) => {
+    this.horizontalService.getIndex()
+    .pipe(takeUntil(this.unsubscribe$))
+    .subscribe((indexs) => {
       let responseArray = Object.keys(indexs).map((keys) => {
         return indexs[keys];
       });
@@ -68,5 +71,11 @@ export class HorizontalComponent implements OnInit {
       });
       this.resArray = res;
     });
+    
+    return this.index$;
+  }
+  ngOnDestroy(): void {
+   this.unsubscribe$.next;
+   this.unsubscribe$.complete();
   }
 }
