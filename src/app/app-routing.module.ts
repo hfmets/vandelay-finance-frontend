@@ -12,6 +12,7 @@ import { IraComponent } from './ira/ira.component';
 import { EztraderComponent } from './eztrader/eztrader.component';
 import { EztraderdashboardComponent } from './eztraderdashboard/eztraderdashboard.component';
 import { DelorComponent } from './delor/delor.component';
+import { GamesComponent } from './games/games.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -26,6 +27,8 @@ const routes: Routes = [
   { path: 'eztrader', component: EztraderComponent },
   { path: 'eztraderdash', component: EztraderdashboardComponent },
   { path: 'delor', component: DelorComponent },
+    { path: 'games', component: GamesComponent },
+
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];

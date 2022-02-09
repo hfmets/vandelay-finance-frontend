@@ -61,6 +61,7 @@ import { DelorComponent } from './delor/delor.component';
 import { IraAccountComponent } from './ira-account/ira-account.component';
 import { BuyIraComponent } from './buy-ira/buy-ira.component';
 import { AddMoneyComponent } from './add-money/add-money.component';
+import { GamesComponent } from './games/games.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,7 @@ import { AddMoneyComponent } from './add-money/add-money.component';
     IraAccountComponent,
     BuyIraComponent,
     AddMoneyComponent,
+    GamesComponent,
   ],
   imports: [
     BrowserModule,
