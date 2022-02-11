@@ -1,4 +1,5 @@
 import { Component, Input, EventEmitter, Output, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import * as Survey from "survey-angular";
 import "survey-angular/modern.css";
 
@@ -233,7 +234,7 @@ function sendDataToServer(this: any, survey:any) {
               recommended = investmentChoices[i]["type"];
           }
         }
-        this.render(['/results']);
+        this.router.navigateByUrl('/results');
         alert(`The recommended investment choice for you is ${recommended}.`)
 }
 
@@ -252,6 +253,8 @@ export class SurveyComponent implements OnInit {
     @Input()
     result: any;
 
+    constructor (private router: Router){}
+    
     ngOnInit() {
         
       var survey = new Survey.Model(surveyJSON);
