@@ -78,6 +78,10 @@
         <mat-icon>videogame_asset</mat-icon>
         <span>Games</span>
       </button>
+      <button mat-button class="menu-button" *ngIf="signedIn" routerLink="/disclaimer">
+        <mat-icon> assessment</mat-icon>
+        Investment Tool
+      </button>
       <button mat-button class="menu-button" *ngIf='signedIn' (click)="logout()">
         <mat-icon>logout</mat-icon>
         <span>Logout</span>
