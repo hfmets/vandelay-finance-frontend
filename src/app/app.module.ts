@@ -62,6 +62,10 @@ import { IraAccountComponent } from './ira-account/ira-account.component';
 import { BuyIraComponent } from './buy-ira/buy-ira.component';
 import { AddMoneyComponent } from './add-money/add-money.component';
 import { GamesComponent } from './games/games.component';
+import { SurveyComponent } from './survey/survey.component';
+import { ResultsComponent } from './results/results.component';
+import { DisclaimerComponent } from './disclaimer/disclaimer.component';
+
 
 @NgModule({
   declarations: [
@@ -96,6 +100,9 @@ import { GamesComponent } from './games/games.component';
     BuyIraComponent,
     AddMoneyComponent,
     GamesComponent,
+    SurveyComponent,
+    ResultsComponent,
+    DisclaimerComponent,
   ],
   imports: [
     BrowserModule,

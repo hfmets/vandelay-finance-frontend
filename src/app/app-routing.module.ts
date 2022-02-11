@@ -13,6 +13,9 @@ import { EztraderComponent } from './eztrader/eztrader.component';
 import { EztraderdashboardComponent } from './eztraderdashboard/eztraderdashboard.component';
 import { DelorComponent } from './delor/delor.component';
 import { GamesComponent } from './games/games.component';
+import { DisclaimerComponent } from './disclaimer/disclaimer.component';
+import { ResultsComponent } from './results/results.component';
+import { SurveyComponent } from './survey/survey.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -27,7 +30,10 @@ const routes: Routes = [
   { path: 'eztrader', component: EztraderComponent },
   { path: 'eztraderdash', component: EztraderdashboardComponent },
   { path: 'delor', component: DelorComponent },
-    { path: 'games', component: GamesComponent },
+  { path: 'games', component: GamesComponent },
+  { path: 'disclaimer', component:DisclaimerComponent},
+  { path: 'survey', component:SurveyComponent},
+  { path: 'results', component:ResultsComponent},
 
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
