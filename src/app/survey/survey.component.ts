@@ -158,7 +158,6 @@ var surveyJSON = {"title":"Investment Tool",
                   "showTitle":false,
                   "showPageTitles":false,
                   "showCompletedPage": false,
-                  "navigateToUrl":"localhost:4200/results",
                   "showProgressBar":"bottom",
                   "progressBarType":"questions",
                   "storeOthersAsComment":false,
@@ -234,16 +233,16 @@ function sendDataToServer(this: any, survey:any) {
               recommended = investmentChoices[i]["type"];
           }
         }
-        this.router.navigateByUrl('/results');
-        alert(`The recommended investment choice for you is ${recommended}.`)
+
+      alert(`The recommended investment choice for you is ${recommended}.`)
 }
 
 @Component({
     // tslint:disable-next-line:component-selector
     selector: "app-survey",
     template: `<div class="survey-container contentcontainer codecontainer"
-    style="background-image: url('https://i.ibb.co/F5Ftb21/Illustration-of-a-small-plant-developing-into-a-money-tree.jpg'); background-repeat: no-repeat; 
-    background-position: right bottom; font-weight: bold; width: 50vw;; background-size: 400px; margin-left: 400px; margin-top: 100px; border-style: solid; border-radius: 10px; border-width: 2px; border-color: black">
+    style="background-color: white; background-image: url('https://i.ibb.co/F5Ftb21/Illustration-of-a-small-plant-developing-into-a-money-tree.jpg'); background-repeat: no-repeat; 
+    background-position: right bottom; width: 50vw; background-size: 400px; margin-left: 400px; margin-top: 100px; border-style: solid; border-radius: 10px; border-width: 2px; border-color: black">
     <div id="surveyElement"></div>
   </div>`
 })
